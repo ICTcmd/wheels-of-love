@@ -328,7 +328,7 @@
   .form-control:focus, .form-input:focus {
     border-color: var(--red-main);
     outline: none;
-    box-shadow: 0 0 0 3px rgba(192, 57, 43, .1);
+    box-shadow: 0 0 0 3px rgba(30,77,140,.15);
   }
   
   textarea.form-control {
@@ -640,3 +640,4 @@
     contain: layout style paint;
   }
 }
+
