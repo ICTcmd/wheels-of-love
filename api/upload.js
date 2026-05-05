@@ -107,7 +107,7 @@ const handler = async (req, res) => {
   }
 };
 
-handler.config = { api: { bodyParser: false } };
+handler.config = { api: { bodyParser: false, responseLimit: '50mb' } };
 module.exports = handler;
 
 function parseMultipart(buffer, boundary) {
