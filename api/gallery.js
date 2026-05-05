@@ -66,7 +66,8 @@ module.exports = async (req, res) => {
       file_type:   safeFileType,
       album:       album?.trim().slice(0, MAX_ALBUM_LENGTH) || null,
       is_featured: is_featured === true,
-      uploaded_by: admin.id
+      uploaded_by: admin.id,
+      program:     PROGRAM
     }).select().single();
 
     if (error) return res.status(500).json({ error: 'Failed to add gallery item.' });

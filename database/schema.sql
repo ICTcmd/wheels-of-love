@@ -167,8 +167,20 @@ INSERT INTO site_settings (key, value, description) VALUES
   ('maintenance_mode', 'false', 'Enable maintenance mode');
 
 -- ============================================================
--- INDEXES
+-- MIGRATION: Add program column to gallery and posts
+-- Run this in Supabase SQL Editor
 -- ============================================================
+ALTER TABLE gallery ADD COLUMN IF NOT EXISTS program VARCHAR(50) DEFAULT 'heart-warriors';
+ALTER TABLE posts   ADD COLUMN IF NOT EXISTS program VARCHAR(50) DEFAULT 'heart-warriors';
+
+-- Update existing Heart Warriors records
+UPDATE gallery SET program = 'heart-warriors' WHERE program IS NULL;
+UPDATE posts   SET program = 'heart-warriors' WHERE program IS NULL;
+
+-- Add indexes for performance
+CREATE INDEX IF NOT EXISTS idx_gallery_program ON gallery(program);
+CREATE INDEX IF NOT EXISTS idx_posts_program   ON posts(program);
+
 CREATE INDEX idx_posts_status ON posts(status);
 CREATE INDEX idx_posts_category ON posts(category_id);
 CREATE INDEX idx_posts_published_at ON posts(published_at DESC);

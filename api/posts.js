@@ -63,6 +63,7 @@ module.exports = async (req, res) => {
 
     let query = supabase.from('posts')
       .select('*, categories(name,slug)', { count: 'exact' })
+      .eq('program', PROGRAM)
       .order('published_at', { ascending: false, nullsFirst: false })
       .order('created_at', { ascending: false })
       .range(from, from + limit - 1);
@@ -131,7 +132,8 @@ module.exports = async (req, res) => {
       status: safeStatus,
       is_featured: is_featured === true,
       tags: safeTags,
-      published_at: safeStatus === 'published' ? new Date() : null
+      published_at: safeStatus === 'published' ? new Date() : null,
+      program: PROGRAM
     }).select().single();
 
     if (error) return res.status(500).json({ error: 'Failed to create post.' });
