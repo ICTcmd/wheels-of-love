@@ -1,0 +1,1 @@
+{"name":"wheels-of-love","version":"1.0.0","description":"Wheels of Love LGU Program Website","scripts":{"dev":"vercel dev","deploy":"vercel --prod"},"dependencies":{"@supabase/supabase-js":"^2.38.0","bcryptjs":"^2.4.3","jimp":"0.22.12","jsonwebtoken":"^9.0.2"}}

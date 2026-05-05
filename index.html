@@ -1,0 +1,412 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wheels of Love - Official LGU Program of Bago City. Caring for Every heart in our community.">
+  <meta property="og:title" content="Wheels of Love | Bago City LGU">
+  <meta property="og:description" content="Caring for Every heart in Bago City. Official program website.">
+  <title>Wheels of Love | LGU Bago City Program</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/mobile-enhancements.css">
+  <link rel="icon" href="assets/images/bago-city-logo.png" type="image/png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#c0392b">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Wheels of Love">
+</head>
+<body>
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-left">
+      <span id="dyn-topbar-text1">Local Government Unit of Bago City</span>
+      <span>|</span>
+      <span id="dyn-topbar-text2">Official Program Website</span>
+    </div>
+    <div class="topbar-right">
+      <div class="digital-clock" id="digitalClock">
+        
+        <span class="clock-time" id="clockTime">--:--:--</span>
+        <span class="clock-date" id="clockDate">--- --, ----</span>
+      </div>
+      <a href="mailto:heartwarriors@bago.gov.ph">heartwarriors@bago.gov.ph</a>
+      
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <nav class="navbar">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/images/logo.png" alt="Wheels of Love Logo" class="brand-logo">
+        <div class="brand-text">
+          <div class="brand-name" id="dyn-brand-name">❤️ Wheels of Love</div>
+          <div class="brand-sub" id="dyn-brand-tagline">LGU Bago City Program</div>
+        </div>
+      </a>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu">
+        <li><a href="index.html" class="nav-link" id="dyn-nav-home">Home</a></li>
+        <li><a href="about.html" class="nav-link" id="dyn-nav-about">About</a></li>
+        <li><a href="news.html" class="nav-link" id="dyn-nav-news">News & Updates</a></li>
+        <li><a href="events.html" class="nav-link" id="dyn-nav-events">Events</a></li>
+        <li><a href="gallery.html" class="nav-link" id="dyn-nav-gallery">Gallery</a></li>
+        <li><a href="contact.html" class="nav-link" id="dyn-nav-contact">Contact</a></li>
+        <li class="nav-cta">
+          <a href="#" class="btn btn-disabled btn-sm" title="Coming Soon">
+            🤝 <span id="dyn-nav-cta">Request Help</span> <span style="font-size:.7rem;opacity:.8">(Soon)</span>
+          </a>
+        </li>
+        <li>
+          <button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg-pattern"></div>
+  <div class="hero-shapes">
+    <div class="hero-shape hero-shape-1"></div>
+    <div class="hero-shape hero-shape-2"></div>
+    <div class="hero-shape hero-shape-3"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge" id="dyn-hero-badge">❤️ LGU Bago City Official Program</div>
+        <h1 class="hero-title">
+          <span id="dyn-hero-title-line1">Caring for Every</span><br>
+          <span class="highlight" id="dyn-hero-title-highlight">Heart</span> <span id="dyn-hero-title-line2">in Our City</span>
+        </h1>
+        <p class="hero-desc" id="dyn-hero-description">
+          Wheels of Love is Bago City's dedicated program for cardiovascular health — providing
+          free check-ups, medicines, education, and community support to those who need it most.
+        </p>
+        <div class="hero-actions">
+          <a href="about.html" class="btn btn-white btn-lg" id="dyn-hero-btn1">Learn More</a>
+          <a href="news.html" class="btn btn-outline btn-lg" id="dyn-hero-btn2" style="border-color:rgba(255,255,255,.6);color:#fff">
+            Latest Updates
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="stat-num" id="dyn-hero-stat1-num" data-counter data-target="1200" data-suffix="+">0</div>
+            <div class="stat-label" id="dyn-hero-stat1-label">Beneficiaries</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-num" id="dyn-hero-stat2-num" data-counter data-target="48" data-suffix="">0</div>
+            <div class="stat-label" id="dyn-hero-stat2-label">Barangays</div>
+          </div>
+          <div class="hero-stat">
+            <div class="stat-num" id="dyn-hero-stat4-num" data-counter data-target="5" data-suffix="">0</div>
+            <div class="stat-label" id="dyn-hero-stat4-label">Years Active</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-image-wrap">
+        <div class="hero-img-card" style="height:360px;position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;background:transparent;border:none;box-shadow:none;backdrop-filter:none">
+
+          <!-- Slide 1: Free Medicines -->
+          <div class="hero-slide active" id="slide-0">
+            <div style="font-size:4rem;margin-bottom:12px">💊</div>
+            <div class="card-title">Free Medicines</div>
+            <div class="card-sub">Providing essential medications to heart patients in need</div>
+          </div>
+
+          <!-- Slide 2: Free Check-ups -->
+          <div class="hero-slide" id="slide-1">
+            <div style="font-size:4rem;margin-bottom:12px">🩺</div>
+            <div class="card-title">Free Check-ups</div>
+            <div class="card-sub">Regular cardiovascular screenings for all Bago City residents</div>
+          </div>
+
+          <!-- Slide 3: Health Education -->
+          <div class="hero-slide" id="slide-2">
+            <div style="font-size:4rem;margin-bottom:12px">📚</div>
+            <div class="card-title">Health Education</div>
+            <div class="card-sub">Empowering communities with heart health knowledge</div>
+          </div>
+
+          <!-- Slide 4: Logo -->
+          <div class="hero-slide" id="slide-3">
+            <picture>
+              <source srcset="assets/images/logo.webp" type="image/webp">
+              <img src="assets/images/logo.png" alt="Wheels of Love Logo"
+                   style="width:130px;height:130px;border-radius:50%;object-fit:cover;margin:0 auto 16px;border:4px solid rgba(255,255,255,.3);box-shadow:0 8px 30px rgba(0,0,0,.2);">
+            </picture>
+            <div class="card-title" id="dyn-card-title">Wheels of Love</div>
+            <div class="card-sub" id="dyn-card-subtitle">Bago City, Negros Occidental</div>
+          </div>
+
+          <!-- Dots -->
+          <div style="display:flex;justify-content:center;gap:6px;margin-top:16px;position:absolute;bottom:0;left:0;right:0">
+            <span class="hero-dot active" onclick="goToSlide(0)"></span>
+            <span class="hero-dot" onclick="goToSlide(1)"></span>
+            <span class="hero-dot" onclick="goToSlide(2)"></span>
+            <span class="hero-dot" onclick="goToSlide(3)"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Cover Photo Banner -->
+<div class="cover-banner-wrap">
+  <picture>
+    <source srcset="assets/images/cover.webp" type="image/webp">
+    <img src="assets/images/cover.png"
+         alt="Wheels of Love Bago City — Mayor Mayette Javellana and Cong. Jeffrey P. Ferrer"
+         class="cover-banner-img" loading="eager" fetchpriority="high">
+  </picture>
+</div>
+
+<!-- Stats Bar -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="num" id="dyn-stat1-num" data-counter data-target="1200" data-suffix="+">0</div>
+        <div class="label" id="dyn-stat1-label">Beneficiaries Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="num" id="dyn-stat2-num" data-counter data-target="48">0</div>
+        <div class="label" id="dyn-stat2-label">Barangays Covered</div>
+      </div>
+      <div class="stat-item">
+        <div class="num" id="dyn-stat3-num" data-counter data-target="350" data-suffix="+">0</div>
+        <div class="label" id="dyn-stat3-label">Free Check-ups Done</div>
+      </div>
+      <div class="stat-item">
+        <div class="num" id="dyn-stat4-num" data-counter data-target="5">0</div>
+        <div class="label" id="dyn-stat4-label">Years of Service</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mission & Vision -->
+<section class="section" style="background:var(--gray-100)">
+  <div class="container">
+    <div class="section-header" data-aos>
+      <span class="section-label">Our Foundation</span>
+      <h2 class="section-title">Mission & <span>Vision</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="mv-grid stagger-children">
+      <div class="mv-card" data-aos>
+        <div class="mv-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p id="dyn-mission">
+          To provide accessible, comprehensive, and compassionate cardiovascular health services
+          to all residents of Bago City — especially the marginalized and underprivileged —
+          through free medical assistance, health education, and community-based interventions.
+        </p>
+      </div>
+      <div class="mv-card" data-aos>
+        <div class="mv-icon">🌟</div>
+        <h3>Our Vision</h3>
+        <p id="dyn-vision">
+          A Bago City where every resident has access to quality heart health care, where
+          cardiovascular diseases are prevented through education and early detection, and where
+          no one suffers alone because of lack of resources or support.
+        </p>
+      </div>
+      <div class="mv-card" data-aos>
+        <div class="mv-icon">💪</div>
+        <h3>Core Values</h3>
+        <p id="dyn-core-values">
+          <strong>Compassion</strong> — We serve with genuine care.<br>
+          <strong>Integrity</strong> — We act with honesty and transparency.<br>
+          <strong>Excellence</strong> — We strive for the best outcomes.<br>
+          <strong>Community</strong> — We believe in the power of togetherness.
+        </p>
+      </div>
+      <div class="mv-card" data-aos>
+        <div class="mv-icon">🏛️</div>
+        <h3>LGU Commitment</h3>
+        <p id="dyn-lgu-commitment">
+          The Local Government Unit of Bago City fully supports Wheels of Love as a flagship
+          health program, allocating resources, personnel, and infrastructure to ensure
+          sustainable and impactful service delivery to all barangays.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Latest News -->
+<section class="section">
+  <div class="container">
+    <div class="section-header" data-aos>
+      <span class="section-label">Stay Informed</span>
+      <h2 class="section-title">Latest <span>News & Updates</span></h2>
+      <div class="divider"></div>
+      <p class="section-desc mt-2">Stay up to date with our latest announcements, events, and stories from the community.</p>
+    </div>
+    <div class="news-grid stagger-children" id="latestPosts">
+      <!-- Loaded dynamically -->
+      <article class="card news-featured">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Loading..." style="background:#fdecea">
+        <div class="card-body">
+          <span class="card-category">Announcements</span>
+          <h3 class="card-title"><a href="#">Wheels of Love Launches Free ECG Program for Senior Citizens</a></h3>
+          <p class="card-excerpt">The Wheels of Love program is proud to announce a new initiative providing free ECG screenings to all senior citizens in Bago City starting this month.</p>
+          <div class="card-meta">
+            <span>📅 May 1, 2026</span>
+            <span>👁 245 views</span>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Loading..." style="background:#fdecea">
+        <div class="card-body">
+          <span class="card-category">Events</span>
+          <h3 class="card-title"><a href="#">Community Health Fair — Barangay Poblacion</a></h3>
+          <p class="card-excerpt">Join us for a free health fair with blood pressure monitoring, cholesterol testing, and health consultations.</p>
+          <div class="card-meta"><span>📅 Apr 28, 2026</span></div>
+        </div>
+      </article>
+      <article class="card">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Loading..." style="background:#fdecea">
+        <div class="card-body">
+          <span class="card-category">Stories</span>
+          <h3 class="card-title"><a href="#">"Wheels of Love Saved My Life" — Lola Nena's Story</a></h3>
+          <p class="card-excerpt">A touching story of how the program's early detection initiative helped a 72-year-old grandmother get the care she needed.</p>
+          <div class="card-meta"><span>📅 Apr 20, 2026</span></div>
+        </div>
+      </article>
+    </div>
+    <div class="text-center mt-3" data-aos>
+      <a href="news.html" class="btn btn-outline">View All News →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Preview -->
+<section class="section" style="background:var(--gray-100)" id="homeGallerySection">
+  <div class="container">
+    <div class="section-header" data-aos>
+      <span class="section-label">Moments</span>
+      <h2 class="section-title">Photo <span>Gallery</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="gallery-grid" id="galleryGrid" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))"></div>
+    <div class="text-center mt-3" data-aos>
+      <a href="gallery.html" class="btn btn-outline">View Full Gallery →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Facebook Feed Placeholder -->
+<section class="section fb-section">
+  <div class="container">
+    <div class="section-header" data-aos>
+      <span class="section-label">Social Media</span>
+      <h2 class="section-title">Follow Us on <span>Facebook</span></h2>
+      <div class="divider"></div>
+    </div>
+    <div class="fb-placeholder" data-aos>
+      <div class="fb-icon"><span class="social-icon icon-facebook" style="width:80px;height:80px;display:block;margin:0 auto"></span></div>
+      <h3>Wheels of Love — Bago City</h3>
+      <p>Follow our official Facebook page for real-time updates, live events, and community stories.</p>
+      
+      <p style="margin-top:16px;font-size:.8rem;color:var(--text-muted)">
+        Facebook feed embed will appear here once the page URL is configured in the admin panel.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div style="font-size:1.8rem">❤️</div>
+          <span class="footer-brand-name">Wheels of Love</span>
+        </div>
+        <p class="footer-desc" id="dyn-footer-desc">
+          An official health program of the Local Government Unit of Bago City,
+          dedicated to cardiovascular health and community wellness.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61589233370202" target="_blank" rel="noopener" class="social-btn" title="Facebook">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+          </a>
+          <a href="#" id="dyn-social-email" class="social-btn" title="Email">✉️</a>
+          <a href="#" class="social-btn" title="Phone">📞</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="dyn-footer-section1">Quick Links</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About the Program</a>
+          <a href="news.html">News & Updates</a>
+          <a href="gallery.html">Gallery</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="dyn-footer-section2">Programs</h4>
+        <div class="footer-links">
+          <a href="#">Free ECG Screening</a>
+          <a href="#">Medicine Assistance</a>
+          <a href="#">Health Education</a>
+          <a href="#">Community Outreach</a>
+          <a href="#">Senior Care</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 id="dyn-footer-section3">Contact</h4>
+        <div class="footer-links">
+          <a href="mailto:heartwarriors@bago.gov.ph" id="dyn-social-email"><span id="dyn-social-email-text">heartwarriors@bago.gov.ph</span></a>
+          <a href="#">📍 Bago City Hall, Negros Occidental</a>
+          <a href="#" id="dyn-social-phone">📞 (034) 000-0000</a>
+          <a href="#">🕐 Mon–Fri, 8AM–5PM</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span id="dyn-footer-copyright">© 2026 Wheels of Love — LGU Bago City. All rights reserved.</span>
+      <span>
+        <a href="admin/index.html">Admin</a> ·
+        <a href="#">Privacy Policy</a> ·
+        <a href="#">Accessibility</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)" aria-label="Previous">‹</button>
+    <img id="lightboxImg" src="" alt="Gallery image">
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)" aria-label="Next">›</button>
+    <p class="lightbox-caption" id="lightboxCaption"></p>
+  </div>
+</div>
+
+<div class="toast-container"></div>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/content-loader.js"></script>
+</body>
+</html>
