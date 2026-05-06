@@ -17,7 +17,7 @@
     <div class="topbar-left"><span id="dyn-topbar-text1">Local Government Unit of Bago City</span></div>
     <div class="topbar-right">
       <div class="digital-clock" id="digitalClock"><span class="clock-time" id="clockTime">--:--:--</span><span class="clock-date" id="clockDate">--- --, ----</span></div>
-      <a href="mailto:heartwarriors@bago.gov.ph"><span id="dyn-social-email-text">heartwarriors@bago.gov.ph</span></a>
+      <a href="mailto:wheelsoflove@bago.gov.ph"><span id="dyn-social-email-text">wheelsoflove@bago.gov.ph</span></a>
       
     </div>
   </div>
@@ -28,20 +28,35 @@
   <div class="container">
     <nav class="navbar">
       <a href="index.html" class="navbar-brand">
+        <img src="assets/images/logo.png" alt="Wheels of Love Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-name" id="dyn-brand-name">❤️ Wheels of Love</div>
           <div class="brand-sub" id="dyn-brand-tagline">LGU Bago City Program</div>
         </div>
       </a>
-      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link" id="dyn-nav-home">Home</a></li>
         <li><a href="about.html" class="nav-link" id="dyn-nav-about">About</a></li>
-        <li><a href="news.html" class="nav-link" id="dyn-nav-news">News & Updates</a></li>
+        <li><a href="news.html" class="nav-link active" id="dyn-nav-news">News & Updates</a></li>
+        <li><a href="events.html" class="nav-link" id="dyn-nav-events">Events</a></li>
         <li><a href="gallery.html" class="nav-link" id="dyn-nav-gallery">Gallery</a></li>
         <li><a href="contact.html" class="nav-link" id="dyn-nav-contact">Contact</a></li>
-        <li class="nav-cta"><a href="#" class="btn btn-disabled btn-sm">🤝 <span id="dyn-nav-cta">Request Help</span> <span style="font-size:.7rem;opacity:.8">(Soon)</span></a></li>
+        <li class="nav-cta">
+          <a href="#" class="btn btn-disabled btn-sm" title="Coming Soon">
+            🤝 <span id="dyn-nav-cta">Request Help</span> <span style="font-size:.7rem;opacity:.8">(Soon)</span>
+          </a>
+        </li>
         <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button></li>
+        <li class="nav-sister-site">
+          <a href="https://heart-warriors.vercel.app" target="_blank" rel="noopener" class="sister-nav-link" title="Visit Heart Warriors — Cardiovascular Health Program">
+            <picture>
+              <source srcset="assets/images/hw-logo.webp" type="image/webp">
+              <img src="assets/images/hw-logo.png" alt="Heart Warriors" class="sister-nav-logo">
+            </picture>
+            <span class="sister-nav-label">Heart Warriors</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -70,7 +85,7 @@
         <button class="filter-btn" data-category="announcements" onclick="filterNews(this, 'announcements')">📢 Announcements</button>
         <button class="filter-btn" data-category="events" onclick="filterNews(this, 'events')">📅 Events</button>
         <button class="filter-btn" data-category="stories" onclick="filterNews(this, 'stories')">💬 Stories</button>
-        <button class="filter-btn" data-category="health-tips" onclick="filterNews(this, 'health-tips')">💚 Health Tips</button>
+        <button class="filter-btn" data-category="health-tips" onclick="filterNews(this, 'health-tips')">♿ PWD Tips</button>
       </div>
       <div class="news-search-wrap">
         <input type="search" id="newsSearchInput" class="news-search-input"
@@ -83,11 +98,11 @@
     <div class="news-list" id="newsPosts">
       <!-- Sample static posts shown before JS loads -->
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="ECG Program" style="background:#fdecea">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Wheelchair Distribution" style="background:#fdecea">
         <div class="card-body">
           <span class="card-category">Announcements</span>
-          <h3 class="card-title"><a href="news-single.html">Wheels of Love Launches Free ECG Program for Senior Citizens</a></h3>
-          <p class="card-excerpt">The Wheels of Love program is proud to announce a new initiative providing free ECG screenings to all senior citizens in Bago City starting this month.</p>
+          <h3 class="card-title"><a href="news-single.html">Wheels of Love Distributes 50 Wheelchairs to PWDs in Barangay Poblacion</a></h3>
+          <p class="card-excerpt">The Wheels of Love program successfully distributed 50 free wheelchairs to qualified PWD beneficiaries in Barangay Poblacion, bringing mobility and independence to those in need.</p>
           <div class="card-meta">
             <span>📅 May 1, 2026</span>
             <span>👁 245 views</span>
@@ -95,11 +110,11 @@
         </div>
       </article>
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="Health Fair" style="background:#fee2e2">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Wheelchair Drive" style="background:#fee2e2">
         <div class="card-body">
           <span class="card-category">Events</span>
-          <h3 class="card-title"><a href="news-single.html">Community Health Fair — Barangay Poblacion, May 15</a></h3>
-          <p class="card-excerpt">Join us for a free health fair with blood pressure monitoring, cholesterol testing, and health consultations. Open to all residents.</p>
+          <h3 class="card-title"><a href="news-single.html">Wheelchair Distribution Drive — Barangay Mailum, May 15</a></h3>
+          <p class="card-excerpt">Join us for a wheelchair distribution drive in Barangay Mailum. All qualified PWD residents are encouraged to attend and bring their PWD ID and barangay certificate.</p>
           <div class="card-meta">
             <span>📅 Apr 28, 2026</span>
             <span>👁 189 views</span>
@@ -107,11 +122,11 @@
         </div>
       </article>
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="Lola Nena" style="background:#fecaca">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Mang Ernesto" style="background:#fecaca">
         <div class="card-body">
           <span class="card-category">Stories</span>
-          <h3 class="card-title"><a href="news-single.html">"Wheels of Love Saved My Life" — Lola Nena's Story</a></h3>
-          <p class="card-excerpt">A touching story of how the program's early detection initiative helped a 72-year-old grandmother get the care she needed in time.</p>
+          <h3 class="card-title"><a href="news-single.html">"My Wheelchair Changed My Life" — Mang Ernesto's Story</a></h3>
+          <p class="card-excerpt">A touching story of how receiving a free wheelchair from Wheels of Love gave a 68-year-old grandfather his independence back.</p>
           <div class="card-meta">
             <span>📅 Apr 20, 2026</span>
             <span>👁 412 views</span>
@@ -119,11 +134,11 @@
         </div>
       </article>
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="Medicine Distribution" style="background:#fdecea">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Distribution Schedule" style="background:#fdecea">
         <div class="card-body">
           <span class="card-category">Announcements</span>
-          <h3 class="card-title"><a href="news-single.html">April Medicine Distribution Schedule Released</a></h3>
-          <p class="card-excerpt">The schedule for April's medicine distribution to registered Wheels of Love beneficiaries has been released. Check your barangay's schedule.</p>
+          <h3 class="card-title"><a href="news-single.html">April Wheelchair Distribution Schedule Released</a></h3>
+          <p class="card-excerpt">The schedule for April's wheelchair distribution to registered Wheels of Love beneficiaries has been released. Check your barangay's schedule.</p>
           <div class="card-meta">
             <span>📅 Apr 10, 2026</span>
             <span>👁 320 views</span>
@@ -131,11 +146,11 @@
         </div>
       </article>
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="Health Tips" style="background:#d1fae5">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="PWD Registration" style="background:#d1fae5">
         <div class="card-body">
-          <span class="card-category">Health Tips</span>
-          <h3 class="card-title"><a href="news-single.html">5 Heart-Healthy Foods You Can Find in Bago City Markets</a></h3>
-          <p class="card-excerpt">Our nutritionist shares affordable, locally available foods that can help lower blood pressure and improve heart health.</p>
+          <span class="card-category">PWD Tips</span>
+          <h3 class="card-title"><a href="news-single.html">PWD Registration Drive: How to Apply for Your Free Wheelchair</a></h3>
+          <p class="card-excerpt">Our social welfare officer shares the step-by-step process for applying for a free wheelchair through the Wheels of Love program.</p>
           <div class="card-meta">
             <span>📅 Apr 5, 2026</span>
             <span>👁 567 views</span>
@@ -143,11 +158,11 @@
         </div>
       </article>
       <article class="card" data-aos>
-        <img class="card-img" src="assets/images/placeholder.jpg" alt="Outreach" style="background:#dbeafe">
+        <img class="card-img" src="assets/images/placeholder.jpg" alt="Outreach Mailum" style="background:#dbeafe">
         <div class="card-body">
           <span class="card-category">Events</span>
-          <h3 class="card-title"><a href="news-single.html">Outreach Mission Reaches Barangay Mailum — 80 Patients Served</a></h3>
-          <p class="card-excerpt">Our mobile health team successfully completed an outreach mission in Barangay Mailum, serving 80 patients with free check-ups and medicines.</p>
+          <h3 class="card-title"><a href="news-single.html">Outreach Mission Reaches Barangay Mailum — 80 PWDs Assessed</a></h3>
+          <p class="card-excerpt">Our mobile team successfully completed an outreach mission in Barangay Mailum, assessing 80 PWDs for wheelchair eligibility and mobility assistance.</p>
           <div class="card-meta">
             <span>📅 Mar 28, 2026</span>
             <span>👁 198 views</span>
@@ -170,7 +185,7 @@
           <div style="font-size:1.8rem">❤️</div>
           <span class="footer-brand-name">Wheels of Love</span>
         </div>
-        <p class="footer-desc" id="dyn-footer-desc">An official health program of the Local Government Unit of Bago City.</p>
+        <p class="footer-desc" id="dyn-footer-desc">An official program of the Local Government Unit of Bago City, dedicated to providing free wheelchairs and mobility assistance to PWDs.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/profile.php?id=61589233370202" target="_blank" rel="noopener" class="social-btn" title="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.267h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg></a>
           <a href="#" id="dyn-social-facebook" class="social-btn"><span class="social-icon icon-facebook-white"></span></a>
@@ -200,7 +215,7 @@
       <div class="footer-col">
         <h4 id="dyn-footer-section3">Contact</h4>
         <div class="footer-links">
-          <a href="mailto:heartwarriors@bago.gov.ph">heartwarriors@bago.gov.ph</a>
+          <a href="mailto:wheelsoflove@bago.gov.ph">wheelsoflove@bago.gov.ph</a>
           <a href="#">📍 Bago City Hall, Negros Occidental</a>
           <a href="#">📞 (034) 000-0000</a>
         </div>

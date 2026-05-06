@@ -1,6 +1,9 @@
 // /api/stats — Dashboard statistics
+const { createClient } = require('@supabase/supabase-js');
 const supabase = require('./_lib/supabase');
 const { requireAuth, cors } = require('./_lib/auth');
+
+const PROGRAM = 'wheels-of-love';
 
 module.exports = async (req, res) => {
   cors(res);
@@ -11,10 +14,10 @@ module.exports = async (req, res) => {
   if (!admin) return;
 
   const [postsRes, galleryRes, messagesRes, viewsRes] = await Promise.all([
-    supabase.from('posts').select('id', { count: 'exact', head: true }),
-    supabase.from('gallery').select('id', { count: 'exact', head: true }),
+    supabase.from('posts').select('id', { count: 'exact', head: true }).eq('program', PROGRAM),
+    supabase.from('gallery').select('id', { count: 'exact', head: true }).eq('program', PROGRAM),
     supabase.from('contact_messages').select('id', { count: 'exact', head: true }).eq('is_read', false),
-    supabase.from('posts').select('views')
+    supabase.from('posts').select('views').eq('program', PROGRAM)
   ]);
 
   const totalViews = (viewsRes.data || []).reduce((sum, p) => sum + (p.views || 0), 0);

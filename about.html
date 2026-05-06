@@ -19,7 +19,7 @@
     </div>
     <div class="topbar-right">
       <div class="digital-clock" id="digitalClock"><span class="clock-time" id="clockTime">--:--:--</span><span class="clock-date" id="clockDate">--- --, ----</span></div>
-      <a href="mailto:heartwarriors@bago.gov.ph"><span id="dyn-social-email-text">heartwarriors@bago.gov.ph</span></a>
+      <a href="mailto:wheelsoflove@bago.gov.ph"><span id="dyn-social-email-text">wheelsoflove@bago.gov.ph</span></a>
       
     </div>
   </div>
@@ -30,20 +30,35 @@
   <div class="container">
     <nav class="navbar">
       <a href="index.html" class="navbar-brand">
+        <img src="assets/images/logo.png" alt="Wheels of Love Logo" class="brand-logo">
         <div class="brand-text">
           <div class="brand-name" id="dyn-brand-name">❤️ Wheels of Love</div>
           <div class="brand-sub" id="dyn-brand-tagline">LGU Bago City Program</div>
         </div>
       </a>
-      <button class="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
       <ul class="nav-menu">
         <li><a href="index.html" class="nav-link" id="dyn-nav-home">Home</a></li>
-        <li><a href="about.html" class="nav-link" id="dyn-nav-about">About</a></li>
+        <li><a href="about.html" class="nav-link active" id="dyn-nav-about">About</a></li>
         <li><a href="news.html" class="nav-link" id="dyn-nav-news">News & Updates</a></li>
+        <li><a href="events.html" class="nav-link" id="dyn-nav-events">Events</a></li>
         <li><a href="gallery.html" class="nav-link" id="dyn-nav-gallery">Gallery</a></li>
         <li><a href="contact.html" class="nav-link" id="dyn-nav-contact">Contact</a></li>
-        <li class="nav-cta"><a href="#" class="btn btn-disabled btn-sm">🤝 <span id="dyn-nav-cta">Request Help</span> <span style="font-size:.7rem;opacity:.8">(Soon)</span></a></li>
+        <li class="nav-cta">
+          <a href="#" class="btn btn-disabled btn-sm" title="Coming Soon">
+            🤝 <span id="dyn-nav-cta">Request Help</span> <span style="font-size:.7rem;opacity:.8">(Soon)</span>
+          </a>
+        </li>
         <li><button class="dark-mode-toggle" id="darkModeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button></li>
+        <li class="nav-sister-site">
+          <a href="https://heart-warriors.vercel.app" target="_blank" rel="noopener" class="sister-nav-link" title="Visit Heart Warriors — Cardiovascular Health Program">
+            <picture>
+              <source srcset="assets/images/hw-logo.webp" type="image/webp">
+              <img src="assets/images/hw-logo.png" alt="Heart Warriors" class="sister-nav-logo">
+            </picture>
+            <span class="sister-nav-label">Heart Warriors</span>
+          </a>
+        </li>
       </ul>
     </nav>
   </div>
@@ -101,7 +116,7 @@
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">✅</span>
-            <p id="dyn-highlight2">Medicine assistance program for hypertension and heart disease patients</p>
+            <p id="dyn-highlight2">Mobility assessment and wheelchair fitting for all qualified PWD beneficiaries</p>
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">✅</span>
@@ -109,7 +124,7 @@
           </div>
           <div class="highlight-item">
             <span class="highlight-icon">✅</span>
-            <p id="dyn-highlight4">Health education and lifestyle coaching for at-risk individuals</p>
+            <p id="dyn-highlight4">Coordination with barangay officials to identify and assist PWDs in all communities</p>
           </div>
         </div>
       </div>
@@ -149,7 +164,7 @@
       <div class="mv-card" data-aos>
         <div class="mv-icon">🏛️</div>
         <h3>LGU Commitment</h3>
-        <p id="dyn-lgu-commitment">The Local Government Unit of Bago City fully supports Wheels of Love as a flagship health program, allocating dedicated budget, personnel, and infrastructure. The program operates under the City Health Office with direct oversight from the Office of the Mayor.</p>
+        <p id="dyn-lgu-commitment">The Local Government Unit of Bago City fully supports Wheels of Love as a flagship PWD mobility program, allocating dedicated budget, personnel, and infrastructure. The program operates under the City Social Welfare and Development Office with direct oversight from the Office of the Mayor.</p>
       </div>
     </div>
   </div>
@@ -165,34 +180,34 @@
     </div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" id="servicesGrid">
       <div class="card" data-aos style="text-align:center;padding:30px">
-        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service1-icon">🫀</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service1-title">ECG Screening</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service1-desc">Free electrocardiogram screenings to detect heart irregularities early, available at all partner health centers.</p>
+        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service1-icon">♿</div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service1-title">Wheelchair Distribution</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service1-desc">Free wheelchairs provided to qualified PWDs across all 48 barangays of Bago City.</p>
       </div>
       <div class="card" data-aos style="text-align:center;padding:30px">
-        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service2-icon">💊</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service2-title">Medicine Assistance</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service2-desc">Monthly medicine packs for qualified hypertension and heart disease patients who cannot afford maintenance medications.</p>
+        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service2-icon">🔍</div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service2-title">Beneficiary Assessment</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service2-desc">Thorough assessment of PWD needs to ensure the right mobility aid is provided to each beneficiary.</p>
       </div>
       <div class="card" data-aos style="text-align:center;padding:30px">
-        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service3-icon">🩺</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service3-title">Health Consultations</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service3-desc">Free consultations with licensed physicians and cardiologists during scheduled community outreach activities.</p>
+        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service3-icon">🤝</div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service3-title">Community Outreach</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service3-desc">Mobile teams visiting all barangays to identify and assist PWDs who cannot travel to the program office.</p>
       </div>
       <div class="card" data-aos style="text-align:center;padding:30px">
-        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service4-icon">📚</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service4-title">Health Education</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service4-desc">Regular seminars and workshops on heart-healthy lifestyles, diet, exercise, and stress management for all ages.</p>
+        <div style="font-size:3rem;margin-bottom:16px" id="dyn-service4-icon">📋</div>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service4-title">PWD Registration</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service4-desc">Assistance with PWD ID registration and documentation to help beneficiaries access government services.</p>
       </div>
       <div class="card" data-aos style="text-align:center;padding:30px">
         <div style="font-size:3rem;margin-bottom:16px" id="dyn-service5-icon">🏘️</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service5-title">Community Outreach</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service5-desc">Mobile health teams visiting all 48 barangays to bring services directly to residents who cannot travel to health centers.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service5-title">Barangay Coordination</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service5-desc">Working with barangay officials to identify and prioritize the most vulnerable PWDs in each community.</p>
       </div>
       <div class="card" data-aos style="text-align:center;padding:30px">
         <div style="font-size:3rem;margin-bottom:16px" id="dyn-service6-icon">👴</div>
-        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service6-title">Senior Care</h3>
-        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service6-desc">Specialized care and priority services for senior citizens, including home visits for bedridden elderly patients.</p>
+        <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:10px;color:var(--red-main)" id="dyn-service6-title">Senior PWD Care</h3>
+        <p style="font-size:.9rem;color:var(--text-muted)" id="dyn-service6-desc">Specialized assistance for elderly persons with disabilities, including home visits for bedridden seniors.</p>
       </div>
     </div>
   </div>
@@ -210,16 +225,16 @@
       <div>
         <p style="font-size:1.05rem;line-height:1.8;margin-bottom:20px;opacity:.95">
           Wheels of Love operates under the direct supervision of the Bago City Local Government Unit,
-          with full institutional support from the City Mayor's Office and the City Health Office.
+          with full institutional support from the City Mayor's Office and the City Social Welfare and Development Office (CSWDO).
         </p>
         <p style="font-size:.95rem;line-height:1.8;opacity:.85;margin-bottom:20px">
-          The program is funded through the city's annual health budget, supplemented by grants
-          from the Department of Health (DOH) and partnerships with private sector organizations
-          committed to community health.
+          The program is funded through the city's annual social welfare budget, supplemented by grants
+          from the Department of Social Welfare and Development (DSWD) and partnerships with private sector organizations
+          committed to PWD inclusion.
         </p>
         <p style="font-size:.95rem;line-height:1.8;opacity:.85">
-          Barangay Health Workers (BHWs) and Barangay Health Emergency Response Teams (BHERTs)
-          serve as the program's frontline implementers, ensuring services reach every corner of the city.
+          Barangay officials and Social Welfare Officers serve as the program's frontline implementers,
+          ensuring wheelchairs and mobility assistance reach every PWD in need across all 48 barangays.
         </p>
       </div>
       <div style="display:flex;flex-direction:column;gap:16px">
@@ -229,9 +244,9 @@
           <p style="font-size:.88rem;opacity:.85">Program oversight, policy direction, and budget allocation</p>
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:var(--radius-md);padding:20px;backdrop-filter:blur(10px)">
-          <div style="font-size:1.5rem;margin-bottom:8px">🏥</div>
-          <h4 style="font-weight:700;margin-bottom:6px">City Health Office</h4>
-          <p style="font-size:.88rem;opacity:.85">Medical operations, personnel deployment, and service delivery</p>
+          <div style="font-size:1.5rem;margin-bottom:8px">🤝</div>
+          <h4 style="font-weight:700;margin-bottom:6px">City Social Welfare Office (CSWDO)</h4>
+          <p style="font-size:.88rem;opacity:.85">Beneficiary assessment, wheelchair distribution, and service delivery</p>
         </div>
         <div style="background:rgba(255,255,255,.12);border-radius:var(--radius-md);padding:20px;backdrop-filter:blur(10px)">
           <div style="font-size:1.5rem;margin-bottom:8px">🤝</div>
@@ -273,16 +288,16 @@
       <div class="footer-col">
         <h4 id="dyn-footer-section2">Programs</h4>
         <div class="footer-links">
-          <a href="#">Free ECG Screening</a>
-          <a href="#">Medicine Assistance</a>
-          <a href="#">Health Education</a>
+          <a href="#">Free Wheelchair Distribution</a>
+          <a href="#">Mobility Assessment</a>
+          <a href="#">PWD Assistance</a>
           <a href="#">Community Outreach</a>
         </div>
       </div>
       <div class="footer-col">
         <h4 id="dyn-footer-section3">Contact</h4>
         <div class="footer-links">
-          <a href="mailto:heartwarriors@bago.gov.ph">heartwarriors@bago.gov.ph</a>
+          <a href="mailto:wheelsoflove@bago.gov.ph">wheelsoflove@bago.gov.ph</a>
           <a href="#">📍 Bago City Hall, Negros Occidental</a>
           <a href="#">📞 (034) 000-0000</a>
         </div>

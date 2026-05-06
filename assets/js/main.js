@@ -1,5 +1,5 @@
 /* ============================================================
-   Heart Warriors - Main JavaScript
+   Wheels of Love - Main JavaScript
    ============================================================ */
 
 const API_BASE = '/api';
@@ -527,7 +527,7 @@ window.addEventListener('scroll', () => {
 /* ============================================================
    Cookie / Privacy Banner
    ============================================================ */
-if (!localStorage.getItem('hw_cookie_consent')) {
+if (!localStorage.getItem('wol_cookie_consent')) {
   const banner = document.createElement('div');
   banner.className = 'cookie-banner';
   banner.innerHTML = `
@@ -546,11 +546,11 @@ if (!localStorage.getItem('hw_cookie_consent')) {
 }
 
 function acceptCookie() {
-  localStorage.setItem('hw_cookie_consent', 'accepted');
+  localStorage.setItem('wol_cookie_consent', 'accepted');
   document.querySelector('.cookie-banner')?.remove();
 }
 function dismissCookie() {
-  localStorage.setItem('hw_cookie_consent', 'declined');
+  localStorage.setItem('wol_cookie_consent', 'declined');
   document.querySelector('.cookie-banner')?.remove();
 }
 
@@ -667,7 +667,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ============================================================
    Dark Mode Toggle
    ============================================================ */
-const DARK_KEY = 'hw_dark_mode';
+const DARK_KEY = 'wol_dark_mode';
 
 function applyDarkMode(dark) {
   document.body.classList.toggle('dark-mode', dark);

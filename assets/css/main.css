@@ -1,5 +1,5 @@
 /* ============================================================
-   Heart Warriors - Main Stylesheet
+   Wheels of Love - Main Stylesheet
    LGU Program Website | Bago City
    ============================================================ */
 
@@ -341,7 +341,7 @@ input, textarea, select { font-family: var(--font-main); }
 .gallery-item:hover img { transform: scale(1.08); }
 .gallery-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(26,58,107,.8), transparent);
+  background: linear-gradient(to top, rgba(179,71,0,.8), transparent);
   opacity: 0; transition: var(--transition);
   display: flex; align-items: flex-end; padding: 14px;
 }
