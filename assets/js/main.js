@@ -262,9 +262,12 @@ async function loadHomeGallery() {
     if (!data || data.length === 0) { section.style.display = 'none'; return; }
     container.innerHTML = data.map((item, i) => `
       <div class="gallery-item" onclick="openLightbox(${i})" data-index="${i}">
-        <img src="${item.file_url}" alt="${item.title || ''}" loading="eager">
+        ${item.file_type === 'video'
+          ? `<video src="${item.file_url}" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`
+          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager">`
+        }
         <div class="gallery-overlay">
-          <span>🔍 ${item.title || 'View'}</span>
+          <span>${item.file_type === 'video' ? '▶ Video' : '🔍 ' + (item.title || 'View')}</span>
         </div>
       </div>
     `).join('');
