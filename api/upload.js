@@ -35,7 +35,15 @@ const handler = async (req, res) => {
 
   // ── Signed URL action (for large/video direct uploads) ────
   if (req.query?.action === 'sign') {
-    const { filename, contentType } = req.body || {};
+    // Manually parse JSON body since bodyParser is disabled
+    let body = {};
+    try {
+      const chunks = [];
+      for await (const chunk of req) chunks.push(chunk);
+      body = JSON.parse(Buffer.concat(chunks).toString('utf8'));
+    } catch { return res.status(400).json({ error: 'Invalid JSON body' }); }
+
+    const { filename, contentType } = body;
     if (!filename || !contentType) return res.status(400).json({ error: 'filename and contentType required' });
 
     const isImage = ALLOWED_IMAGE_TYPES.includes(contentType);
@@ -58,8 +66,8 @@ const handler = async (req, res) => {
 
     return res.status(200).json({ signedUrl: data.signedUrl, path, token: data.token });
   }
-  if (!admin) return;
 
+  // ── Regular multipart upload (images under 4MB) ───────────
   try {
     const chunks = [];
     for await (const chunk of req) chunks.push(chunk);
