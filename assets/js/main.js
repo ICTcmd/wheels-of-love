@@ -307,7 +307,10 @@ async function loadGallery(album = '') {
     container.innerHTML = data.map((item, i) => `
       <div class="gallery-item ${i === 0 ? 'wide tall' : i === 3 ? 'wide' : ''}"
            onclick="openLightbox(${i})" data-index="${i}">
-        <img src="${item.file_url}" alt="${item.title || ''}" loading="eager">
+        ${item.file_type === 'video'
+          ? `<video src="${item.file_url}" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover"></video>`
+          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager">`
+        }
         <div class="gallery-overlay">
           <span>${item.file_type === 'video' ? '▶ Video' : '🔍 ' + (item.title || 'View')}</span>
         </div>
@@ -338,15 +341,42 @@ function updateLightbox() {
   const items = window._galleryItems || [];
   const item = items[_lightboxIndex];
   if (!item) return;
-  const img = document.getElementById('lightboxImg');
   const cap = document.getElementById('lightboxCaption');
-  if (img) img.src = item.file_url;
+  const inner = document.querySelector('.lightbox-inner');
+  if (!inner) return;
+
+  // Remove existing media element
+  const oldImg = document.getElementById('lightboxImg');
+  const oldVid = document.getElementById('lightboxVid');
+  if (oldImg) oldImg.remove();
+  if (oldVid) oldVid.remove();
+
+  if (item.file_type === 'video') {
+    const vid = document.createElement('video');
+    vid.id = 'lightboxVid';
+    vid.src = item.file_url;
+    vid.controls = true;
+    vid.autoplay = true;
+    vid.style.cssText = 'max-width:90vw;max-height:80vh;border-radius:8px;';
+    // Insert before caption
+    inner.insertBefore(vid, cap);
+  } else {
+    const img = document.createElement('img');
+    img.id = 'lightboxImg';
+    img.src = item.file_url;
+    img.alt = item.title || 'Gallery image';
+    inner.insertBefore(img, cap);
+  }
+
   if (cap) cap.textContent = item.title || '';
 }
 
 function closeLightbox() {
   const lb = document.getElementById('lightbox');
   if (lb) lb.classList.remove('open');
+  // Stop video if playing
+  const vid = document.getElementById('lightboxVid');
+  if (vid) { vid.pause(); vid.src = ''; }
   document.body.style.overflow = '';
 }
 
