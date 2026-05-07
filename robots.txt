@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://heart-warriors.vercel.app/sitemap.xml
+Sitemap: https://wheels-of-love.vercel.app/sitemap.xml
