@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery | Wheels of Love Admin</title>
+  <title>Gallery | Heart Warriors Admin</title>
   <link rel="stylesheet" href="../assets/css/admin.css">
   <link rel="icon" href="../assets/images/bago-city-logo.png" type="image/png">
   <style>
@@ -23,7 +23,7 @@
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-logo">❤️</div>
-      <div class="sidebar-brand"><div class="name">Wheels of Love</div><div class="sub">Admin Panel</div></div>
+      <div class="sidebar-brand"><div class="name">Heart Warriors</div><div class="sub">Admin Panel</div></div>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
@@ -53,7 +53,7 @@
       <div class="admin-header-left">
         <div>
           <div class="page-title">Gallery Management</div>
-          <div class="breadcrumb-admin">Wheels of Love › Gallery</div>
+          <div class="breadcrumb-admin">Heart Warriors › Gallery</div>
         </div>
       </div>
       <div class="admin-header-right">
@@ -159,34 +159,12 @@
 <div class="toast-container"></div>
 <script src="../assets/js/admin.js"></script>
 <script>
-// ── Supabase direct upload config ──────────────────────────
-// Used for large videos that exceed Vercel's 4.5MB body limit
 const SUPABASE_URL = 'https://bjnzdhmlndxxvyzaigii.supabase.co';
-const SUPABASE_ANON_KEY_PUB = (() => {
-  // Fetch from a meta tag injected by the server, or fall back to null
-  // The anon key is safe to use client-side (it's the public key)
-  return document.querySelector('meta[name="sb-anon"]')?.content || null;
-})();
 const STORAGE_BUCKET = 'heart-warriors-media';
-const VERCEL_SIZE_LIMIT = 4 * 1024 * 1024; // 4MB — stay under Vercel's 4.5MB limit
-
-async function getAnonKey() {
-  // Fetch the anon key from a lightweight API endpoint
-  if (SUPABASE_ANON_KEY_PUB) return SUPABASE_ANON_KEY_PUB;
-  try {
-    const res = await fetch('/api/settings?key=sb_anon_pub', {
-      headers: { 'Authorization': `Bearer ${getToken()}` }
-    });
-    const json = await res.json();
-    return json.value || null;
-  } catch { return null; }
-}
+const VERCEL_SIZE_LIMIT = 4 * 1024 * 1024; // 4MB
 
 async function uploadDirect(file, title, album) {
-  // Direct browser → Supabase Storage upload (bypasses Vercel size limit)
   const token = getToken();
-
-  // Step 1: Get a signed upload URL from our API
   const sigRes = await fetch('/api/upload?action=sign', {
     method: 'POST',
     headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
@@ -196,9 +174,8 @@ async function uploadDirect(file, title, album) {
     const j = await sigRes.json().catch(() => ({}));
     throw new Error(j.error || 'Failed to get upload URL');
   }
-  const { signedUrl, path, token: uploadToken } = await sigRes.json();
+  const { signedUrl, path } = await sigRes.json();
 
-  // Step 2: Upload directly to Supabase Storage using the signed URL
   const uploadRes = await fetch(signedUrl, {
     method: 'PUT',
     headers: { 'Content-Type': file.type, 'x-upsert': 'false' },
@@ -206,7 +183,6 @@ async function uploadDirect(file, title, album) {
   });
   if (!uploadRes.ok) throw new Error('Storage upload failed: ' + uploadRes.status);
 
-  // Step 3: Save the record to the gallery DB via our API
   const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${STORAGE_BUCKET}/${path}`;
   const dbRes = await fetch('/api/gallery', {
     method: 'POST',
@@ -233,23 +209,38 @@ async function uploadFiles() {
   if (!input.files.length) { toast('Please select files first.', 'warning'); return; }
 
   const btns = document.querySelectorAll('[onclick="uploadFiles()"]');
-  btns.forEach(b => { b.disabled = true; });
+  btns.forEach(b => { b.disabled = true; b.textContent = '⏳ Uploading...'; });
+
+  // Show progress overlay
+  let progressEl = document.getElementById('uploadProgressBar');
+  if (!progressEl) {
+    const wrap = document.createElement('div');
+    wrap.id = 'uploadProgressWrap';
+    wrap.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:9999;background:#c0392b;height:4px;transition:width .3s';
+    progressEl = document.createElement('div');
+    progressEl.id = 'uploadProgressBar';
+    progressEl.style.cssText = 'height:4px;background:#ffd700;width:0%;transition:width .4s ease';
+    wrap.appendChild(progressEl);
+    document.body.appendChild(wrap);
+  }
+  progressEl.style.width = '0%';
 
   let successCount = 0;
+  const total = input.files.length;
 
-  for (let i = 0; i < input.files.length; i++) {
+  for (let i = 0; i < total; i++) {
     const file = input.files[i];
-    btns.forEach(b => b.textContent = `Uploading ${i + 1} of ${input.files.length}...`);
+    const pct = Math.round(((i) / total) * 90);
+    progressEl.style.width = pct + '%';
+    btns.forEach(b => b.textContent = `⏳ Uploading ${i + 1} of ${total}...`);
 
     try {
       const isLarge = file.size > VERCEL_SIZE_LIMIT;
       const isVideo = file.type.startsWith('video/');
 
       if (isLarge || isVideo) {
-        // Large file or video — upload directly to Supabase
         await uploadDirect(file, title, album);
       } else {
-        // Small image — use existing Vercel API
         const fd = new FormData();
         fd.append('file', file);
         fd.append('title', title);
@@ -260,19 +251,26 @@ async function uploadFiles() {
           headers: { 'Authorization': `Bearer ${token}` },
           body: fd
         });
-        if (res.status === 413) throw new Error('File too large. Using direct upload next time.');
+        if (res.status === 413) throw new Error('File too large. Try a smaller file.');
         const json = await res.json().catch(() => ({}));
         if (!res.ok) throw new Error(json.error || 'Upload failed');
       }
-
       successCount++;
+      // Refresh gallery after each successful upload so user sees it immediately
+      loadGalleryAdmin();
     } catch (err) {
       toast(`Failed: ${file.name} — ${err.message}`, 'error');
     }
   }
 
+  progressEl.style.width = '100%';
+  setTimeout(() => {
+    const wrap = document.getElementById('uploadProgressWrap');
+    if (wrap) wrap.remove();
+  }, 800);
+
   if (successCount > 0) {
-    toast(`${successCount} file(s) uploaded successfully!`, 'success');
+    toast(`✅ ${successCount} file(s) uploaded successfully!`, 'success');
     input.value = '';
     document.getElementById('uploadPreview').innerHTML = '';
     document.getElementById('uploadMeta').style.display = 'none';
