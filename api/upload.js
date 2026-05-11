@@ -6,7 +6,7 @@ const ALLOWED_IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp
 const ALLOWED_VIDEO_TYPES = ['video/mp4', 'video/webm', 'video/ogg'];
 const MAX_IMAGE_SIZE = 10 * 1024 * 1024; // 10MB
 const MAX_VIDEO_SIZE = 500 * 1024 * 1024; // 500MB
-const BUCKET = 'heart-warriors-media';
+const BUCKET = 'wheels-of-love-media';
 
 const MAGIC_NUMBERS = [
   { mime: 'image/jpeg', offset: 0, bytes: [0xFF, 0xD8, 0xFF] },
