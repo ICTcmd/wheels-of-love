@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-logo">??</div>
+      <div class="sidebar-logo">&#9829;</div>
       <div class="sidebar-brand">
         <div class="name">Wheels of Love</div>
         <div class="sub">Admin Panel</div>
@@ -22,31 +22,31 @@
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
       <a href="dashboard.html" class="sidebar-link active">
-        <span class="icon">??</span> Dashboard
+        <span class="icon">&#128202;</span> Dashboard
       </a>
       <a href="posts.html" class="sidebar-link">
-        <span class="icon">??</span> Posts & News
+        <span class="icon">&#128221;</span> Posts & News
       </a>
       <a href="gallery.html" class="sidebar-link">
-        <span class="icon">???</span> Gallery
+        <span class="icon">&#128444;</span> Gallery
       </a>
       <div class="nav-section-label">Management</div>
       <a href="messages.html" class="sidebar-link">
-        <span class="icon">??</span> Messages
+        <span class="icon">&#9993;</span> Messages
         <span class="badge" id="unreadBadge">0</span>
       </a>
       <a href="content.html" class="sidebar-link">
-        <span class="icon">??</span> Site Content
+        <span class="icon">&#9998;</span> Site Content
       </a>
       <a href="settings.html" class="sidebar-link">
-        <span class="icon">??</span> Settings
+        <span class="icon">&#9881;</span> Settings
       </a>
       <div class="nav-section-label">Future</div>
       <a href="#" class="sidebar-link" style="opacity:.4;cursor:not-allowed" title="Coming Soon">
-        <span class="icon">??</span> Users
+        <span class="icon">&#128193;</span> Users
       </a>
       <a href="#" class="sidebar-link" style="opacity:.4;cursor:not-allowed" title="Coming Soon">
-        <span class="icon">??</span> Help Requests
+        <span class="icon">&#128193;</span> Help Requests
       </a>
     </nav>
     <div class="sidebar-footer">
@@ -67,7 +67,7 @@
       <div class="admin-header-left">
         <div>
           <div class="page-title">Dashboard</div>
-          <div class="breadcrumb-admin">Wheels of Love › Dashboard</div>
+          <div class="breadcrumb-admin">Wheels of Love ï¿½ Dashboard</div>
         </div>
       </div>
       <div class="admin-header-right">
@@ -84,9 +84,9 @@
       <!-- Stats -->
       <div class="stats-row">
         <div class="stat-card">
-          <div class="stat-icon red">??</div>
+          <div class="stat-icon red">&#128193;</div>
           <div class="stat-info">
-            <div class="stat-num" id="statPosts">—</div>
+            <div class="stat-num" id="statPosts">ï¿½</div>
             <div class="stat-label">Total Posts</div>
             <div class="stat-change up" id="statPostsChange"></div>
           </div>
@@ -94,21 +94,21 @@
         <div class="stat-card">
           <div class="stat-icon blue">???</div>
           <div class="stat-info">
-            <div class="stat-num" id="statGallery">—</div>
+            <div class="stat-num" id="statGallery">ï¿½</div>
             <div class="stat-label">Gallery Items</div>
           </div>
         </div>
         <div class="stat-card">
-          <div class="stat-icon yellow">??</div>
+          <div class="stat-icon yellow">&#128193;</div>
           <div class="stat-info">
-            <div class="stat-num" id="statMessages">—</div>
+            <div class="stat-num" id="statMessages">ï¿½</div>
             <div class="stat-label">Messages</div>
           </div>
         </div>
         <div class="stat-card">
           <div class="stat-icon green">???</div>
           <div class="stat-info">
-            <div class="stat-num" id="statViews">—</div>
+            <div class="stat-num" id="statViews">ï¿½</div>
             <div class="stat-label">Total Views</div>
           </div>
         </div>
@@ -167,7 +167,7 @@
             <div class="admin-card-body">
               <div style="display:flex;flex-direction:column;gap:12px">
                 <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--gray-50);border-radius:var(--radius-sm)">
-                  <span style="font-size:1.2rem">??</span>
+                  <span style="font-size:1.2rem">&#128193;</span>
                   <div>
                     <div style="font-size:.85rem;font-weight:600">User Management</div>
                     <div style="font-size:.75rem;color:var(--text-muted)">Register & manage beneficiaries</div>
@@ -175,7 +175,7 @@
                   <span class="badge" style="background:#fef3c7;color:#92400e;margin-left:auto">Soon</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--gray-50);border-radius:var(--radius-sm)">
-                  <span style="font-size:1.2rem">??</span>
+                  <span style="font-size:1.2rem">&#128193;</span>
                   <div>
                     <div style="font-size:.85rem;font-weight:600">Help Requests</div>
                     <div style="font-size:.75rem;color:var(--text-muted)">Ticketing & request tracking</div>
@@ -183,7 +183,7 @@
                   <span class="badge" style="background:#fef3c7;color:#92400e;margin-left:auto">Soon</span>
                 </div>
                 <div style="display:flex;align-items:center;gap:10px;padding:10px;background:var(--gray-50);border-radius:var(--radius-sm)">
-                  <span style="font-size:1.2rem">??</span>
+                  <span style="font-size:1.2rem">&#128193;</span>
                   <div>
                     <div style="font-size:.85rem;font-weight:600">Analytics</div>
                     <div style="font-size:.75rem;color:var(--text-muted)">Detailed traffic & engagement</div>
@@ -217,7 +217,7 @@ async function loadRecentPosts() {
         <td><span class="badge badge-${p.status}">${p.status}</span></td>
         <td style="font-size:.8rem;color:var(--text-muted)">${formatDate(p.published_at || p.created_at)}</td>
         <td style="font-size:.85rem">${(p.views||0).toLocaleString()}</td>
-        <td><a href="posts.html" class="btn-admin btn-admin-secondary btn-icon" style="font-size:.75rem">??</a></td>
+        <td><a href="posts.html" class="btn-admin btn-admin-secondary btn-icon" style="font-size:.75rem">&#128193;</a></td>
       </tr>
     `).join('');
   } catch {

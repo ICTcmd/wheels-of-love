@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -22,18 +22,18 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-logo">??</div>
+      <div class="sidebar-logo">&#9829;</div>
       <div class="sidebar-brand"><div class="name">Wheels of Love</div><div class="sub">Admin Panel</div></div>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
-      <a href="dashboard.html" class="sidebar-link"><span class="icon">??</span> Dashboard</a>
-      <a href="posts.html" class="sidebar-link"><span class="icon">??</span> Posts & News</a>
-      <a href="gallery.html" class="sidebar-link active"><span class="icon">???</span> Gallery</a>
+      <a href="dashboard.html" class="sidebar-link"><span class="icon">&#128202;</span> Dashboard</a>
+      <a href="posts.html" class="sidebar-link"><span class="icon">&#128221;</span> Posts & News</a>
+      <a href="gallery.html" class="sidebar-link active"><span class="icon">&#128444;</span> Gallery</a>
       <div class="nav-section-label">Management</div>
-      <a href="messages.html" class="sidebar-link"><span class="icon">??</span> Messages</a>
-      <a href="content.html" class="sidebar-link"><span class="icon">??</span> Site Content</a>
-      <a href="settings.html" class="sidebar-link"><span class="icon">??</span> Settings</a>
+      <a href="messages.html" class="sidebar-link"><span class="icon">&#9993;</span> Messages</a>
+      <a href="content.html" class="sidebar-link"><span class="icon">&#9998;</span> Site Content</a>
+      <a href="settings.html" class="sidebar-link"><span class="icon">&#9881;</span> Settings</a>
     </nav>
     <div class="sidebar-footer">
       <div class="sidebar-user">
@@ -53,7 +53,7 @@
       <div class="admin-header-left">
         <div>
           <div class="page-title">Gallery Management</div>
-          <div class="breadcrumb-admin">Heart Warriors › Gallery</div>
+          <div class="breadcrumb-admin">Heart Warriors ï¿½ Gallery</div>
         </div>
       </div>
       <div class="admin-header-right">
@@ -72,11 +72,11 @@
         </div>
         <div class="admin-card-body">
           <div class="upload-zone" id="uploadZone">
-            <div class="upload-icon">??</div>
+            <div class="upload-icon">&#128193;</div>
             <h4>Drag & drop files here</h4>
-            <p>or click to browse — JPG, PNG, GIF, WebP, MP4, WebM</p>
+            <p>or click to browse ï¿½ JPG, PNG, GIF, WebP, MP4, WebM</p>
             <p style="margin-top:8px;font-size:.78rem;color:var(--green);font-weight:600">
-              ? Images are automatically compressed & converted to WebP — same quality, much smaller size
+              ? Images are automatically compressed & converted to WebP ï¿½ same quality, much smaller size
             </p>
             <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display:none">
           </div>
@@ -150,7 +150,7 @@
     <div class="modal-footer" style="flex-shrink:0">
       <button class="btn-admin btn-admin-secondary" onclick="closeModal('galleryPreviewModal')">Close Preview</button>
       <button class="btn-admin btn-admin-primary" onclick="closeModal('galleryPreviewModal');uploadFiles()">
-        Looks Good — Upload Now
+        Looks Good ï¿½ Upload Now
       </button>
     </div>
   </div>
@@ -259,7 +259,7 @@ async function uploadFiles() {
       // Refresh gallery after each successful upload so user sees it immediately
       loadGalleryAdmin();
     } catch (err) {
-      toast(`Failed: ${file.name} — ${err.message}`, 'error');
+      toast(`Failed: ${file.name} ï¿½ ${err.message}`, 'error');
     }
   }
 
