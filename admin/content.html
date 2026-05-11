@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../assets/css/admin.css">
   <link rel="icon" href="../assets/images/bago-city-logo.png" type="image/png">
   <style>
-    /* ── Tab nav ── */
+    /* -- Tab nav -- */
     .content-tabs { display:flex; gap:4px; border-bottom:2px solid var(--gray-200); margin-bottom:28px; flex-wrap:wrap; }
     .content-tab  { padding:10px 20px; border:none; background:none; cursor:pointer; font-size:.9rem; font-weight:600;
                     color:var(--text-muted); border-bottom:3px solid transparent; margin-bottom:-2px; transition:.2s; border-radius:6px 6px 0 0; }
@@ -15,7 +15,7 @@
     .content-tab.active { color:var(--red-main); border-bottom-color:var(--red-main); background:var(--red-pale); }
     .tab-panel { display:none; } .tab-panel.active { display:block; }
 
-    /* ── Preview modal ── */
+    /* -- Preview modal -- */
     .preview-modal { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,.7); }
     .preview-modal.open { display:flex; flex-direction:column; }
     .preview-bar { background:#1e293b; color:#fff; padding:12px 20px; display:flex; align-items:center;
@@ -27,14 +27,14 @@
                                    border-radius:4px; cursor:pointer; font-size:.8rem; }
     .preview-device-btns button.active { background:var(--red-main); }
 
-    /* ── Form layout ── */
+    /* -- Form layout -- */
     .content-form-grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; }
     @media(max-width:768px){ .content-form-grid { grid-template-columns:1fr; } }
     .form-group-full { grid-column:1/-1; }
     .char-count { font-size:.75rem; color:var(--text-muted); text-align:right; margin-top:3px; }
     .stat-row { display:grid; grid-template-columns:1fr 80px 1fr; gap:12px; align-items:end; }
 
-    /* ── Unsaved indicator ── */
+    /* -- Unsaved indicator -- */
     .unsaved-dot { width:8px; height:8px; border-radius:50%; background:#f59e0b; display:inline-block; margin-left:6px; }
     .save-bar { position:sticky; bottom:0; background:#fff; border-top:1px solid var(--gray-200);
                 padding:16px 24px; display:flex; align-items:center; justify-content:space-between;
@@ -48,18 +48,18 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-logo">❤️</div>
+      <div class="sidebar-logo">??</div>
       <div class="sidebar-brand"><div class="name">Wheels of Love</div><div class="sub">Admin Panel</div></div>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
-      <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
-      <a href="posts.html" class="sidebar-link"><span class="icon">📝</span> Posts & News</a>
-      <a href="gallery.html" class="sidebar-link"><span class="icon">🖼️</span> Gallery</a>
+      <a href="dashboard.html" class="sidebar-link"><span class="icon">??</span> Dashboard</a>
+      <a href="posts.html" class="sidebar-link"><span class="icon">??</span> Posts & News</a>
+      <a href="gallery.html" class="sidebar-link"><span class="icon">???</span> Gallery</a>
       <div class="nav-section-label">Management</div>
-      <a href="messages.html" class="sidebar-link"><span class="icon">✉️</span> Messages</a>
-      <a href="content.html" class="sidebar-link active"><span class="icon">✏️</span> Site Content</a>
-      <a href="settings.html" class="sidebar-link"><span class="icon">⚙️</span> Settings</a>
+      <a href="messages.html" class="sidebar-link"><span class="icon">??</span> Messages</a>
+      <a href="content.html" class="sidebar-link active"><span class="icon">??</span> Site Content</a>
+      <a href="settings.html" class="sidebar-link"><span class="icon">??</span> Settings</a>
     </nav>
     <div class="sidebar-footer">
       <div class="sidebar-user">
@@ -68,7 +68,7 @@
           <div class="user-name admin-name">Admin</div>
           <div class="user-role admin-role">Administrator</div>
         </div>
-        <button class="sidebar-logout" data-logout title="Logout">⏻</button>
+        <button class="sidebar-logout" data-logout title="Logout">?</button>
       </div>
     </div>
   </aside>
@@ -79,12 +79,12 @@
       <div class="admin-header-left">
         <div>
           <div class="page-title">Site Content</div>
-          <div class="breadcrumb-admin">Wheels of Love › Site Content</div>
+          <div class="breadcrumb-admin">Wheels of Love � Site Content</div>
         </div>
       </div>
       <div style="display:flex;gap:10px">
-        <button class="btn-admin btn-admin-secondary" onclick="openPreview()">👁 Preview</button>
-        <button class="btn-admin btn-admin-primary" onclick="saveAll()" id="saveAllBtn">💾 Save All Changes</button>
+        <button class="btn-admin btn-admin-secondary" onclick="openPreview()">?? Preview</button>
+        <button class="btn-admin btn-admin-primary" onclick="saveAll()" id="saveAllBtn">?? Save All Changes</button>
       </div>
     </header>
 
@@ -92,16 +92,16 @@
 
       <!-- Tab Navigation -->
       <div class="content-tabs">
-        <button class="content-tab active" onclick="switchTab('nav')">🧭 Navigation</button>
-        <button class="content-tab" onclick="switchTab('hero')">🏠 Hero</button>
-        <button class="content-tab" onclick="switchTab('stats')">📊 Stats</button>
-        <button class="content-tab" onclick="switchTab('mission')">🎯 Mission</button>
-        <button class="content-tab" onclick="switchTab('about')">📄 About Page</button>
-        <button class="content-tab" onclick="switchTab('contact')">📧 Contact</button>
-        <button class="content-tab" onclick="switchTab('footer')">🔻 Footer</button>
+        <button class="content-tab active" onclick="switchTab('nav')">?? Navigation</button>
+        <button class="content-tab" onclick="switchTab('hero')">?? Hero</button>
+        <button class="content-tab" onclick="switchTab('stats')">?? Stats</button>
+        <button class="content-tab" onclick="switchTab('mission')">?? Mission</button>
+        <button class="content-tab" onclick="switchTab('about')">?? About Page</button>
+        <button class="content-tab" onclick="switchTab('contact')">?? Contact</button>
+        <button class="content-tab" onclick="switchTab('footer')">?? Footer</button>
       </div>
 
-      <!-- ── TAB: Navigation ── -->
+      <!-- -- TAB: Navigation -- -->
       <div class="tab-panel active" id="tab-nav">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -169,7 +169,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: Hero ── -->
+      <!-- -- TAB: Hero -- -->
       <div class="tab-panel" id="tab-hero">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -181,20 +181,20 @@
 
               <div class="form-group form-group-full">
                 <label class="form-label">Badge Text <span style="color:var(--text-muted);font-weight:400">(small pill above title)</span></label>
-                <input type="text" id="hero_badge" class="form-input" placeholder="❤️ LGU Bago City Official Program" maxlength="80" oninput="markUnsaved(this)">
+                <input type="text" id="hero_badge" class="form-input" placeholder="?? LGU Bago City Official Program" maxlength="80" oninput="markUnsaved(this)">
                 <div class="char-count"><span id="hero_badge_count">0</span>/80</div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">Title — Line 1</label>
+                <label class="form-label">Title � Line 1</label>
                 <input type="text" id="hero_title_line1" class="form-input" placeholder="Caring for Every" maxlength="60" oninput="markUnsaved(this)">
               </div>
               <div class="form-group">
-                <label class="form-label">Title — Highlighted Word <span style="color:var(--red-main)">(shown in yellow)</span></label>
+                <label class="form-label">Title � Highlighted Word <span style="color:var(--red-main)">(shown in yellow)</span></label>
                 <input type="text" id="hero_title_highlight" class="form-input" placeholder="Heart" maxlength="30" oninput="markUnsaved(this)">
               </div>
               <div class="form-group form-group-full">
-                <label class="form-label">Title — Line 2 <span style="color:var(--text-muted);font-weight:400">(after the highlighted word)</span></label>
+                <label class="form-label">Title � Line 2 <span style="color:var(--text-muted);font-weight:400">(after the highlighted word)</span></label>
                 <input type="text" id="hero_title_line2" class="form-input" placeholder="in Our City" maxlength="60" oninput="markUnsaved(this)">
               </div>
 
@@ -224,15 +224,15 @@
 
               <div class="form-group">
                 <label class="form-label">Service Tag 1</label>
-                <input type="text" id="hero_tag1" class="form-input" placeholder="💊 Free Medicines" maxlength="40" oninput="markUnsaved(this)">
+                <input type="text" id="hero_tag1" class="form-input" placeholder="?? Free Medicines" maxlength="40" oninput="markUnsaved(this)">
               </div>
               <div class="form-group">
                 <label class="form-label">Service Tag 2</label>
-                <input type="text" id="hero_tag2" class="form-input" placeholder="🩺 Free Check-ups" maxlength="40" oninput="markUnsaved(this)">
+                <input type="text" id="hero_tag2" class="form-input" placeholder="?? Free Check-ups" maxlength="40" oninput="markUnsaved(this)">
               </div>
               <div class="form-group">
                 <label class="form-label">Service Tag 3</label>
-                <input type="text" id="hero_tag3" class="form-input" placeholder="📚 Health Education" maxlength="40" oninput="markUnsaved(this)">
+                <input type="text" id="hero_tag3" class="form-input" placeholder="?? Health Education" maxlength="40" oninput="markUnsaved(this)">
               </div>
 
             </div>
@@ -240,7 +240,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: Stats ── -->
+      <!-- -- TAB: Stats -- -->
       <div class="tab-panel" id="tab-stats">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -327,7 +327,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: Mission & Vision ── -->
+      <!-- -- TAB: Mission & Vision -- -->
       <div class="tab-panel" id="tab-mission">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -338,28 +338,28 @@
             <div style="display:flex;flex-direction:column;gap:24px">
 
               <div class="form-group">
-                <label class="form-label">🎯 Mission</label>
+                <label class="form-label">?? Mission</label>
                 <textarea id="mission_text" class="form-input" rows="4" maxlength="800" oninput="markUnsaved(this)"
                   placeholder="To provide accessible, comprehensive..."></textarea>
                 <div class="char-count"><span id="mission_text_count">0</span>/800</div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">🌟 Vision</label>
+                <label class="form-label">?? Vision</label>
                 <textarea id="vision_text" class="form-input" rows="4" maxlength="800" oninput="markUnsaved(this)"
                   placeholder="A Bago City where every resident..."></textarea>
                 <div class="char-count"><span id="vision_text_count">0</span>/800</div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">💪 Core Values <span style="color:var(--text-muted);font-weight:400">(use line breaks to separate each value)</span></label>
+                <label class="form-label">?? Core Values <span style="color:var(--text-muted);font-weight:400">(use line breaks to separate each value)</span></label>
                 <textarea id="core_values_text" class="form-input" rows="5" maxlength="800" oninput="markUnsaved(this)"
-                  placeholder="Compassion — We serve with genuine care.&#10;Integrity — We act with honesty and transparency.&#10;Excellence — We strive for the best outcomes.&#10;Community — We believe in the power of togetherness."></textarea>
+                  placeholder="Compassion � We serve with genuine care.&#10;Integrity � We act with honesty and transparency.&#10;Excellence � We strive for the best outcomes.&#10;Community � We believe in the power of togetherness."></textarea>
                 <div class="char-count"><span id="core_values_text_count">0</span>/800</div>
               </div>
 
               <div class="form-group">
-                <label class="form-label">🏛️ LGU Commitment</label>
+                <label class="form-label">??? LGU Commitment</label>
                 <textarea id="lgu_commitment_text" class="form-input" rows="4" maxlength="800" oninput="markUnsaved(this)"
                   placeholder="The Local Government Unit of Bago City fully supports..."></textarea>
                 <div class="char-count"><span id="lgu_commitment_text_count">0</span>/800</div>
@@ -370,7 +370,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: About Page ── -->
+      <!-- -- TAB: About Page -- -->
       <div class="tab-panel" id="tab-about">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -410,7 +410,7 @@
               </div>
               
               <div style="border-top:1px solid var(--gray-200);padding-top:20px">
-                <h4 style="font-size:.9rem;font-weight:600;margin-bottom:16px">Highlight Items (✅ checkmarks)</h4>
+                <h4 style="font-size:.9rem;font-weight:600;margin-bottom:16px">Highlight Items (? checkmarks)</h4>
                 <div style="display:flex;flex-direction:column;gap:12px">
                   <input type="text" id="about_highlight1" class="form-input" placeholder="Free ECG and cardiovascular screenings..." maxlength="200" oninput="markUnsaved(this)">
                   <input type="text" id="about_highlight2" class="form-input" placeholder="Medicine assistance program..." maxlength="200" oninput="markUnsaved(this)">
@@ -434,7 +434,7 @@
                   <div style="display:grid;grid-template-columns:80px 1fr;gap:12px">
                     <div class="form-group" style="margin:0">
                       <label class="form-label" style="font-size:.75rem">Icon</label>
-                      <input type="text" id="service${n}_icon" class="form-input" placeholder="🫀" maxlength="10" oninput="markUnsaved(this)">
+                      <input type="text" id="service${n}_icon" class="form-input" placeholder="??" maxlength="10" oninput="markUnsaved(this)">
                     </div>
                     <div class="form-group" style="margin:0">
                       <label class="form-label" style="font-size:.75rem">Title</label>
@@ -452,7 +452,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: Contact Page ── -->
+      <!-- -- TAB: Contact Page -- -->
       <div class="tab-panel" id="tab-contact">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -470,7 +470,7 @@
               </div>
               <div class="form-group">
                 <label class="form-label">Office Hours</label>
-                <input type="text" id="contact_office_hours" class="form-input" placeholder="Monday–Friday, 8:00 AM – 5:00 PM" maxlength="100" oninput="markUnsaved(this)">
+                <input type="text" id="contact_office_hours" class="form-input" placeholder="Monday�Friday, 8:00 AM � 5:00 PM" maxlength="100" oninput="markUnsaved(this)">
               </div>
               
               <div style="border-top:1px solid var(--gray-200);padding-top:20px">
@@ -503,7 +503,7 @@
         </div>
       </div>
 
-      <!-- ── TAB: Footer ── -->
+      <!-- -- TAB: Footer -- -->
       <div class="tab-panel" id="tab-footer">
         <div class="admin-card">
           <div class="admin-card-header">
@@ -535,7 +535,7 @@
               
               <div class="form-group">
                 <label class="form-label">Copyright Text</label>
-                <input type="text" id="footer_copyright" class="form-input" placeholder="© 2026 Wheels of Love — LGU Bago City. All rights reserved." maxlength="150" oninput="markUnsaved(this)">
+                <input type="text" id="footer_copyright" class="form-input" placeholder="� 2026 Wheels of Love � LGU Bago City. All rights reserved." maxlength="150" oninput="markUnsaved(this)">
               </div>
               
               <div style="border-top:1px solid var(--gray-200);padding-top:20px">
@@ -564,8 +564,8 @@
       <div class="save-bar">
         <div class="save-bar-left" id="saveStatus">All changes saved.</div>
         <div style="display:flex;gap:10px">
-          <button class="btn-admin btn-admin-secondary" onclick="openPreview()">👁 Preview Changes</button>
-          <button class="btn-admin btn-admin-primary" onclick="saveAll()" id="saveAllBtn2">💾 Save All Changes</button>
+          <button class="btn-admin btn-admin-secondary" onclick="openPreview()">?? Preview Changes</button>
+          <button class="btn-admin btn-admin-primary" onclick="saveAll()" id="saveAllBtn2">?? Save All Changes</button>
         </div>
       </div>
 
@@ -573,21 +573,21 @@
   </main>
 </div>
 
-<!-- ── Preview Modal ── -->
+<!-- -- Preview Modal -- -->
 <div class="preview-modal" id="previewModal">
   <div class="preview-bar">
-    <h3>👁 Live Preview — <span id="previewLabel">Homepage</span></h3>
+    <h3>?? Live Preview � <span id="previewLabel">Homepage</span></h3>
     <div class="preview-bar-actions">
       <div class="preview-device-btns">
-        <button class="active" onclick="setPreviewWidth('100%',this)">🖥 Desktop</button>
-        <button onclick="setPreviewWidth('768px',this)">📱 Tablet</button>
-        <button onclick="setPreviewWidth('390px',this)">📱 Mobile</button>
+        <button class="active" onclick="setPreviewWidth('100%',this)">?? Desktop</button>
+        <button onclick="setPreviewWidth('768px',this)">?? Tablet</button>
+        <button onclick="setPreviewWidth('390px',this)">?? Mobile</button>
       </div>
       <select id="previewPage" onchange="reloadPreview()" style="padding:5px 10px;border-radius:4px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);color:#fff;font-size:.85rem">
         <option value="../index.html">Homepage</option>
         <option value="../about.html">About Page</option>
       </select>
-      <button onclick="closePreview()" style="background:rgba(255,255,255,.15);border:none;color:#fff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:.85rem">✕ Close</button>
+      <button onclick="closePreview()" style="background:rgba(255,255,255,.15);border:none;color:#fff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:.85rem">? Close</button>
     </div>
   </div>
   <iframe id="previewFrame" class="preview-frame" src="" title="Preview"></iframe>
@@ -596,11 +596,11 @@
 <div class="toast-container"></div>
 <script src="../assets/js/admin.js"></script>
 <script>
-/* ── State ── */
+/* -- State -- */
 let currentSettings = {};
 let hasUnsaved = false;
 
-/* ── Tab switching ── */
+/* -- Tab switching -- */
 function switchTab(name) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.content-tab').forEach(t => t.classList.remove('active'));
@@ -608,10 +608,10 @@ function switchTab(name) {
   event.currentTarget.classList.add('active');
 }
 
-/* ── Unsaved indicator ── */
+/* -- Unsaved indicator -- */
 function markUnsaved(el) {
   hasUnsaved = true;
-  document.getElementById('saveStatus').innerHTML = '⚠️ You have unsaved changes.';
+  document.getElementById('saveStatus').innerHTML = '?? You have unsaved changes.';
   updateCharCount(el);
 }
 
@@ -620,7 +620,7 @@ function updateCharCount(el) {
   if (countEl) countEl.textContent = el.value.length;
 }
 
-/* ── Load settings from API ── */
+/* -- Load settings from API -- */
 async function loadSettings() {
   try {
     const data = await apiFetch('/settings');
@@ -646,18 +646,18 @@ const DEFAULTS = {
   topbar_text2: 'Official Program Website',
   
   // Hero
-  hero_badge: '❤️ LGU Bago City Official Program',
+  hero_badge: '?? LGU Bago City Official Program',
   hero_title_line1: 'Caring for Every',
   hero_title_highlight: 'Heart',
   hero_title_line2: 'in Our City',
-  hero_description: "Wheels of Love is Bago City's dedicated program for cardiovascular health — providing free check-ups, medicines, education, and community support to those who need it most.",
+  hero_description: "Wheels of Love is Bago City's dedicated program for cardiovascular health � providing free check-ups, medicines, education, and community support to those who need it most.",
   hero_btn1_text: 'Learn More',
   hero_btn2_text: 'Latest Updates',
   hero_card_title: 'Wheels of Love',
   hero_card_subtitle: 'Bago City, Negros Occidental',
-  hero_tag1: '💊 Free Medicines',
-  hero_tag2: '🩺 Free Check-ups',
-  hero_tag3: '📚 Health Education',
+  hero_tag1: '?? Free Medicines',
+  hero_tag2: '?? Free Check-ups',
+  hero_tag3: '?? Health Education',
   
   // Stats
   stat1_value: '1200', stat1_suffix: '+', stat1_label: 'Beneficiaries Served',
@@ -666,33 +666,33 @@ const DEFAULTS = {
   stat4_value: '5',    stat4_suffix: '',  stat4_label: 'Years of Service',
   
   // Mission & Vision
-  mission_text: 'To provide accessible, comprehensive, and compassionate cardiovascular health services to all residents of Bago City — especially the marginalized and underprivileged — through free medical assistance, health education, and community-based interventions.',
+  mission_text: 'To provide accessible, comprehensive, and compassionate cardiovascular health services to all residents of Bago City � especially the marginalized and underprivileged � through free medical assistance, health education, and community-based interventions.',
   vision_text: 'A Bago City where every resident has access to quality heart health care, where cardiovascular diseases are prevented through education and early detection, and where no one suffers alone because of lack of resources or support.',
-  core_values_text: 'Compassion — We serve with genuine care.\nIntegrity — We act with honesty and transparency.\nExcellence — We strive for the best outcomes.\nCommunity — We believe in the power of togetherness.',
+  core_values_text: 'Compassion � We serve with genuine care.\nIntegrity � We act with honesty and transparency.\nExcellence � We strive for the best outcomes.\nCommunity � We believe in the power of togetherness.',
   lgu_commitment_text: 'The Local Government Unit of Bago City fully supports Wheels of Love as a flagship health program, allocating resources, personnel, and infrastructure to ensure sustainable and impactful service delivery to all barangays.',
   
   // About Page
   about_page_title: 'About Wheels of Love',
   about_page_desc: 'Our story, our mission, and the people behind the program.',
   about_intro_p1: 'Wheels of Love is an official health program of the Local Government Unit of Bago City, Negros Occidental. Established in 2021, the program was created in response to the growing prevalence of cardiovascular diseases among Bago City residents, particularly among the elderly and low-income communities.',
-  about_intro_p2: 'The program provides free cardiovascular health services including ECG screenings, blood pressure monitoring, cholesterol testing, medicine assistance, and health education seminars — all at no cost to qualified beneficiaries.',
+  about_intro_p2: 'The program provides free cardiovascular health services including ECG screenings, blood pressure monitoring, cholesterol testing, medicine assistance, and health education seminars � all at no cost to qualified beneficiaries.',
   about_intro_p3: 'Through partnerships with local health centers, barangay officials, and volunteer medical professionals, Wheels of Love has reached over 1,200 beneficiaries across all 48 barangays of Bago City.',
   about_established_year: '2021',
   about_highlight1: 'Free ECG and cardiovascular screenings for all qualified residents',
   about_highlight2: 'Medicine assistance program for hypertension and heart disease patients',
   about_highlight3: 'Regular community outreach in all 48 barangays of Bago City',
   about_highlight4: 'Health education and lifestyle coaching for at-risk individuals',
-  service1_icon: '🫀', service1_title: 'ECG Screening', service1_desc: 'Free electrocardiogram screenings to detect heart irregularities early, available at all partner health centers.',
-  service2_icon: '💊', service2_title: 'Medicine Assistance', service2_desc: 'Monthly medicine packs for qualified hypertension and heart disease patients who cannot afford maintenance medications.',
-  service3_icon: '🩺', service3_title: 'Health Consultations', service3_desc: 'Free consultations with licensed physicians and cardiologists during scheduled community outreach activities.',
-  service4_icon: '📚', service4_title: 'Health Education', service4_desc: 'Regular seminars and workshops on heart-healthy lifestyles, diet, exercise, and stress management for all ages.',
-  service5_icon: '🏘️', service5_title: 'Community Outreach', service5_desc: 'Mobile health teams visiting all 48 barangays to bring services directly to residents who cannot travel to health centers.',
-  service6_icon: '👴', service6_title: 'Senior Care', service6_desc: 'Specialized care and priority services for senior citizens, including home visits for bedridden elderly patients.',
+  service1_icon: '??', service1_title: 'ECG Screening', service1_desc: 'Free electrocardiogram screenings to detect heart irregularities early, available at all partner health centers.',
+  service2_icon: '??', service2_title: 'Medicine Assistance', service2_desc: 'Monthly medicine packs for qualified hypertension and heart disease patients who cannot afford maintenance medications.',
+  service3_icon: '??', service3_title: 'Health Consultations', service3_desc: 'Free consultations with licensed physicians and cardiologists during scheduled community outreach activities.',
+  service4_icon: '??', service4_title: 'Health Education', service4_desc: 'Regular seminars and workshops on heart-healthy lifestyles, diet, exercise, and stress management for all ages.',
+  service5_icon: '???', service5_title: 'Community Outreach', service5_desc: 'Mobile health teams visiting all 48 barangays to bring services directly to residents who cannot travel to health centers.',
+  service6_icon: '??', service6_title: 'Senior Care', service6_desc: 'Specialized care and priority services for senior citizens, including home visits for bedridden elderly patients.',
   
   // Contact Page
   contact_page_title: 'Get in Touch',
   contact_page_desc: 'Have questions or need assistance? We\'re here to help. Reach out to us through any of the channels below.',
-  contact_office_hours: 'Monday–Friday, 8:00 AM – 5:00 PM',
+  contact_office_hours: 'Monday�Friday, 8:00 AM � 5:00 PM',
   contact_form_name_label: 'Your Name',
   contact_form_email_label: 'Your Email',
   contact_form_subject_label: 'Subject',
@@ -704,7 +704,7 @@ const DEFAULTS = {
   footer_section1_title: 'Quick Links',
   footer_section2_title: 'Programs',
   footer_section3_title: 'Contact',
-  footer_copyright: '© 2026 Wheels of Love — LGU Bago City. All rights reserved.',
+  footer_copyright: '� 2026 Wheels of Love � LGU Bago City. All rights reserved.',
   social_facebook: 'https://www.facebook.com/profile.php?id=61589233370202',
   social_email: 'heartwarriors@bago.gov.ph',
   social_phone: '(034) 000-0000'
@@ -723,7 +723,7 @@ function populateForm(settings) {
   document.getElementById('saveStatus').textContent = 'All changes saved.';
 }
 
-/* ── Collect form values ── */
+/* -- Collect form values -- */
 function collectForm() {
   const keys = Object.keys(DEFAULTS);
   const result = {};
@@ -734,27 +734,27 @@ function collectForm() {
   return result;
 }
 
-/* ── Save all ── */
+/* -- Save all -- */
 async function saveAll() {
   const btn1 = document.getElementById('saveAllBtn');
   const btn2 = document.getElementById('saveAllBtn2');
-  [btn1, btn2].forEach(b => { if(b){ b.disabled = true; b.textContent = '⏳ Saving...'; } });
+  [btn1, btn2].forEach(b => { if(b){ b.disabled = true; b.textContent = '? Saving...'; } });
 
   try {
     const body = collectForm();
     await apiFetch('/settings', { method: 'PUT', body: JSON.stringify(body) });
     currentSettings = body;
     hasUnsaved = false;
-    document.getElementById('saveStatus').textContent = '✅ All changes saved — ' + new Date().toLocaleTimeString();
+    document.getElementById('saveStatus').textContent = '? All changes saved � ' + new Date().toLocaleTimeString();
     toast('Content saved successfully!', 'success');
   } catch (err) {
     toast('Save failed: ' + err.message, 'error');
   } finally {
-    [btn1, btn2].forEach(b => { if(b){ b.disabled = false; b.textContent = b.id === 'saveAllBtn' ? '💾 Save All Changes' : '💾 Save All Changes'; } });
+    [btn1, btn2].forEach(b => { if(b){ b.disabled = false; b.textContent = b.id === 'saveAllBtn' ? '?? Save All Changes' : '?? Save All Changes'; } });
   }
 }
 
-/* ── Preview ── */
+/* -- Preview -- */
 function openPreview() {
   const modal = document.getElementById('previewModal');
   modal.classList.add('open');
@@ -781,12 +781,12 @@ function setPreviewWidth(width, btn) {
   btn.classList.add('active');
 }
 
-/* ── Warn on unload ── */
+/* -- Warn on unload -- */
 window.addEventListener('beforeunload', e => {
   if (hasUnsaved) { e.preventDefault(); e.returnValue = ''; }
 });
 
-/* ── Init ── */
+/* -- Init -- */
 document.addEventListener('DOMContentLoaded', () => {
   requireAuth();
   loadSettings();

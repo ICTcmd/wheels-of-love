@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -13,24 +13,24 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header">
-      <div class="sidebar-logo">❤️</div>
+      <div class="sidebar-logo">??</div>
       <div class="sidebar-brand"><div class="name">Wheels of Love</div><div class="sub">Admin Panel</div></div>
     </div>
     <nav class="sidebar-nav">
       <div class="nav-section-label">Main</div>
-      <a href="dashboard.html" class="sidebar-link"><span class="icon">📊</span> Dashboard</a>
-      <a href="posts.html" class="sidebar-link"><span class="icon">📝</span> Posts & News</a>
-      <a href="gallery.html" class="sidebar-link"><span class="icon">🖼️</span> Gallery</a>
+      <a href="dashboard.html" class="sidebar-link"><span class="icon">??</span> Dashboard</a>
+      <a href="posts.html" class="sidebar-link"><span class="icon">??</span> Posts & News</a>
+      <a href="gallery.html" class="sidebar-link"><span class="icon">???</span> Gallery</a>
       <div class="nav-section-label">Management</div>
-      <a href="messages.html" class="sidebar-link active"><span class="icon">✉️</span> Messages</a>
-      <a href="content.html" class="sidebar-link"><span class="icon">✏️</span> Site Content</a>
-      <a href="settings.html" class="sidebar-link"><span class="icon">⚙️</span> Settings</a>
+      <a href="messages.html" class="sidebar-link active"><span class="icon">??</span> Messages</a>
+      <a href="content.html" class="sidebar-link"><span class="icon">??</span> Site Content</a>
+      <a href="settings.html" class="sidebar-link"><span class="icon">??</span> Settings</a>
       <div class="nav-section-label">Future</div>
       <a href="#" class="sidebar-link" style="opacity:.4;cursor:not-allowed" title="Coming Soon">
-        <span class="icon">👥</span> Users
+        <span class="icon">??</span> Users
       </a>
       <a href="#" class="sidebar-link" style="opacity:.4;cursor:not-allowed" title="Coming Soon">
-        <span class="icon">🎫</span> Help Requests
+        <span class="icon">??</span> Help Requests
       </a>
     </nav>
     <div class="sidebar-footer">
@@ -40,7 +40,7 @@
           <div class="user-name admin-name">Admin</div>
           <div class="user-role admin-role">Administrator</div>
         </div>
-        <button class="sidebar-logout" data-logout title="Logout">⏻</button>
+        <button class="sidebar-logout" data-logout title="Logout">?</button>
       </div>
     </div>
   </aside>
@@ -51,7 +51,7 @@
       <div class="admin-header-left">
         <div>
           <div class="page-title">Messages</div>
-          <div class="breadcrumb-admin">Wheels of Love › Messages</div>
+          <div class="breadcrumb-admin">Wheels of Love � Messages</div>
         </div>
       </div>
       <div class="admin-header-right">
@@ -90,7 +90,7 @@
   <div class="modal" style="max-width:560px">
     <div class="modal-header">
       <h3>Message Details</h3>
-      <button class="modal-close" onclick="closeModal('messageModal')">✕</button>
+      <button class="modal-close" onclick="closeModal('messageModal')">?</button>
     </div>
     <div class="modal-body">
       <div style="display:flex;flex-direction:column;gap:14px">
@@ -115,7 +115,7 @@
     </div>
     <div class="modal-footer">
       <a id="msgReplyBtn" href="#" class="btn-admin btn-admin-primary" target="_blank">
-        ✉️ Reply via Email
+        ?? Reply via Email
       </a>
       <button class="btn-admin btn-admin-secondary" onclick="closeModal('messageModal')">Close</button>
     </div>
@@ -133,7 +133,7 @@ async function loadMessages() {
     const { data, total } = await apiFetch('/messages?limit=50');
 
     const unread = (data || []).filter(m => !m.is_read).length;
-    countEl.textContent = `${total} total · ${unread} unread`;
+    countEl.textContent = `${total} total � ${unread} unread`;
 
     if (!data?.length) {
       tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:var(--text-muted)">No messages yet.</td></tr>';
@@ -143,15 +143,15 @@ async function loadMessages() {
     tbody.innerHTML = data.map((m, idx) => `
       <tr style="${!m.is_read ? 'background:#fffbf0;font-weight:600' : ''}">
         <td style="text-align:center">
-          ${!m.is_read ? '<span style="color:#f59e0b;font-size:1rem" title="Unread">●</span>' : '<span style="color:var(--gray-400);font-size:1rem">○</span>'}
+          ${!m.is_read ? '<span style="color:#f59e0b;font-size:1rem" title="Unread">?</span>' : '<span style="color:var(--gray-400);font-size:1rem">?</span>'}
         </td>
         <td>${escHtml(m.name)}</td>
         <td style="font-size:.85rem;color:var(--text-muted)">${escHtml(m.email)}</td>
-        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escHtml(m.subject || '—')}</td>
+        <td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escHtml(m.subject || '�')}</td>
         <td style="font-size:.82rem;color:var(--text-muted)">${formatDate(m.created_at)}</td>
         <td>
           <button class="btn-admin btn-admin-secondary btn-icon" title="View"
-                  data-msg-idx="${idx}">👁️</button>
+                  data-msg-idx="${idx}">???</button>
         </td>
       </tr>
     `).join('');
