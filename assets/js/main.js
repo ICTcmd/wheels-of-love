@@ -1,5 +1,5 @@
 /* ============================================================
-   Wheels of Love - Main JavaScript
+   Heart Warriors - Main JavaScript
    ============================================================ */
 
 const API_BASE = '/api';
@@ -264,7 +264,7 @@ async function loadHomeGallery() {
       <div class="gallery-item" onclick="openLightbox(${i})" data-index="${i}">
         ${item.file_type === 'video'
           ? `<video src="${item.file_url}" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>`
-          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager">`
+          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager" decoding="async" crossorigin="anonymous" onerror="this.style.opacity='0.3'">`
         }
         <div class="gallery-overlay">
           <span>${item.file_type === 'video' ? '▶ Video' : '🔍 ' + (item.title || 'View')}</span>
@@ -309,7 +309,7 @@ async function loadGallery(album = '') {
            onclick="openLightbox(${i})" data-index="${i}">
         ${item.file_type === 'video'
           ? `<video src="${item.file_url}" muted playsinline preload="metadata" style="width:100%;height:100%;object-fit:cover" onmouseenter="this.play()" onmouseleave="this.pause();this.currentTime=0"></video>`
-          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager">`
+          : `<img src="${item.file_url}" alt="${item.title || ''}" loading="eager" decoding="async" crossorigin="anonymous" onerror="this.style.opacity='0.3'">`
         }
         <div class="gallery-overlay">
           <span>${item.file_type === 'video' ? '▶ Video' : '🔍 ' + (item.title || 'View')}</span>
@@ -345,7 +345,6 @@ function updateLightbox() {
   const inner = document.querySelector('.lightbox-inner');
   if (!inner) return;
 
-  // Remove existing media element
   const oldImg = document.getElementById('lightboxImg');
   const oldVid = document.getElementById('lightboxVid');
   if (oldImg) oldImg.remove();
@@ -358,7 +357,6 @@ function updateLightbox() {
     vid.controls = true;
     vid.autoplay = true;
     vid.style.cssText = 'max-width:90vw;max-height:80vh;border-radius:8px;';
-    // Insert before caption
     inner.insertBefore(vid, cap);
   } else {
     const img = document.createElement('img');
@@ -374,7 +372,6 @@ function updateLightbox() {
 function closeLightbox() {
   const lb = document.getElementById('lightbox');
   if (lb) lb.classList.remove('open');
-  // Stop video if playing
   const vid = document.getElementById('lightboxVid');
   if (vid) { vid.pause(); vid.src = ''; }
   document.body.style.overflow = '';
@@ -527,7 +524,7 @@ window.addEventListener('scroll', () => {
 /* ============================================================
    Cookie / Privacy Banner
    ============================================================ */
-if (!localStorage.getItem('wol_cookie_consent')) {
+if (!localStorage.getItem('hw_cookie_consent')) {
   const banner = document.createElement('div');
   banner.className = 'cookie-banner';
   banner.innerHTML = `
@@ -546,11 +543,11 @@ if (!localStorage.getItem('wol_cookie_consent')) {
 }
 
 function acceptCookie() {
-  localStorage.setItem('wol_cookie_consent', 'accepted');
+  localStorage.setItem('hw_cookie_consent', 'accepted');
   document.querySelector('.cookie-banner')?.remove();
 }
 function dismissCookie() {
-  localStorage.setItem('wol_cookie_consent', 'declined');
+  localStorage.setItem('hw_cookie_consent', 'declined');
   document.querySelector('.cookie-banner')?.remove();
 }
 
@@ -667,7 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ============================================================
    Dark Mode Toggle
    ============================================================ */
-const DARK_KEY = 'wol_dark_mode';
+const DARK_KEY = 'hw_dark_mode';
 
 function applyDarkMode(dark) {
   document.body.classList.toggle('dark-mode', dark);
