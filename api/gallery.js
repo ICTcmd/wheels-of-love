@@ -1,4 +1,4 @@
-﻿// /api/gallery — GET list, POST add, DELETE /api/gallery?id=xxx
+// /api/gallery � GET list, POST add, DELETE /api/gallery?id=xxx
 const supabase = require('./_lib/supabase');
 const { PROGRAM } = require('./_lib/supabase');
 const { requireAuth, cors } = require('./_lib/auth');
@@ -11,12 +11,12 @@ const MAX_DESC_LENGTH = 1000;
 const MAX_ALBUM_LENGTH = 100;
 
 module.exports = async (req, res) => {
-  cors(res);
+  cors(res, req);
   if (req.method === 'OPTIONS') return res.status(200).end();
 
   const id = req.query?.id || null;
 
-  // ── GET list (public) ──────────────────────────────────────
+  // -- GET list (public) --------------------------------------
   if (req.method === 'GET') {
     const page  = Math.max(1, parseInt(req.query?.page || '1'));
     const limit = Math.min(100, parseInt(req.query?.limit || '20'));
@@ -44,7 +44,7 @@ module.exports = async (req, res) => {
   const admin = requireAuth(req, res);
   if (!admin) return;
 
-  // ── POST add item ──────────────────────────────────────────
+  // -- POST add item ------------------------------------------
   if (req.method === 'POST') {
     const { file_url, title, description, file_type, album, is_featured } = req.body || {};
 
@@ -75,7 +75,7 @@ module.exports = async (req, res) => {
     return res.status(201).json({ data });
   }
 
-  // ── DELETE /api/gallery?id=xxx ─────────────────────────────
+  // -- DELETE /api/gallery?id=xxx -----------------------------
   if (req.method === 'DELETE') {
     if (!id) return res.status(400).json({ error: 'Missing id parameter' });
 
@@ -88,7 +88,7 @@ module.exports = async (req, res) => {
           const [bucket, ...fp] = parts[1].split('/');
           await supabase.storage.from(bucket).remove([fp.join('/')]);
         }
-      } catch { /* ignore storage cleanup errors — DB record still gets deleted */ }
+      } catch { /* ignore storage cleanup errors � DB record still gets deleted */ }
     }
 
     const { error } = await supabase.from('gallery').delete().eq('id', id);
