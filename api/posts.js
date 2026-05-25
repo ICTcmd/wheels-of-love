@@ -1,21 +1,20 @@
-// /api/posts � GET list, POST create, PUT /api/posts?id=xxx, DELETE /api/posts?id=xxx
+﻿// /api/posts — GET list, POST create, PUT /api/posts?id=xxx, DELETE /api/posts?id=xxx
 const supabase = require('./_lib/supabase');
-const { PROGRAM } = require('./_lib/supabase');
-const { requireAuth, cors } = require('./_lib/auth');
+const { requireAuth, cors, getClientIp, checkWriteRateLimit, enforceBodySizeLimit } = require('./_lib/auth');
 const cache = require('./_lib/cache');
 
-// -- Slug helper ------------------------------------------------------------
+// ── Slug helper ────────────────────────────────────────────────────────────
 function slugify(t) {
   return t.toLowerCase().replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').trim();
 }
 
-// -- Input length limits ----------------------------------------------------
+// ── Input length limits ────────────────────────────────────────────────────
 const MAX_TITLE   = 255;
 const MAX_EXCERPT = 500;
-const MAX_CONTENT = 200_000; // ~200KB � enough for any article
+const MAX_CONTENT = 200_000; // ~200KB — enough for any article
 const MAX_IMAGE_URL = 2048;
 
-// -- Allowed status values --------------------------------------------------
+// ── Allowed status values ──────────────────────────────────────────────────
 const ALLOWED_STATUS = new Set(['draft', 'published', 'archived']);
 
 module.exports = async (req, res) => {
@@ -24,7 +23,7 @@ module.exports = async (req, res) => {
 
   const id = req.query?.id || null;
 
-  // -- GET single post ----------------------------------------
+  // ── GET single post ────────────────────────────────────────
   if (req.method === 'GET' && id) {
     const { data, error } = await supabase
       .from('posts').select('*, categories(name,slug), admins(name)').eq('id', id).single();
@@ -35,7 +34,7 @@ module.exports = async (req, res) => {
     });
   }
 
-  // -- GET list -----------------------------------------------
+  // ── GET list ───────────────────────────────────────────────
   if (req.method === 'GET') {
     const page  = Math.max(1, parseInt(req.query?.page || '1'));
     const limit = Math.min(50, parseInt(req.query?.limit || '9'));
@@ -63,7 +62,6 @@ module.exports = async (req, res) => {
 
     let query = supabase.from('posts')
       .select('*, categories(name,slug)', { count: 'exact' })
-      .eq('program', PROGRAM)
       .order('published_at', { ascending: false, nullsFirst: false })
       .order('created_at', { ascending: false })
       .range(from, from + limit - 1);
@@ -89,7 +87,18 @@ module.exports = async (req, res) => {
   const admin = requireAuth(req, res);
   if (!admin) return;
 
-  // -- POST create --------------------------------------------
+  // Rate limit write operations
+  const writeIp = getClientIp(req);
+  const writeCheck = checkWriteRateLimit(writeIp);
+  if (!writeCheck.allowed) {
+    res.setHeader('Retry-After', String(writeCheck.retryAfter));
+    return res.status(429).json({ error: 'Too many requests. Please slow down.' });
+  }
+
+  // Body size limit for JSON payloads (1MB)
+  if (!enforceBodySizeLimit(req, res)) return;
+
+  // ── POST create ────────────────────────────────────────────
   if (req.method === 'POST') {
     const { title, excerpt, content, category_id, status, is_featured, tags, featured_image } = req.body || {};
 
@@ -132,8 +141,7 @@ module.exports = async (req, res) => {
       status: safeStatus,
       is_featured: is_featured === true,
       tags: safeTags,
-      published_at: safeStatus === 'published' ? new Date() : null,
-      program: PROGRAM
+      published_at: safeStatus === 'published' ? new Date() : null
     }).select().single();
 
     if (error) return res.status(500).json({ error: 'Failed to create post.' });
@@ -141,7 +149,7 @@ module.exports = async (req, res) => {
     return res.status(201).json({ data });
   }
 
-  // -- PUT update ---------------------------------------------
+  // ── PUT update ─────────────────────────────────────────────
   if (req.method === 'PUT' && id) {
     const { title, excerpt, content, category_id, status, is_featured, tags, featured_image } = req.body || {};
     const updates = { updated_at: new Date() };
@@ -183,7 +191,7 @@ module.exports = async (req, res) => {
     return res.status(200).json({ data });
   }
 
-  // -- DELETE -------------------------------------------------
+  // ── DELETE ─────────────────────────────────────────────────
   if (req.method === 'DELETE' && id) {
     const { error } = await supabase.from('posts').delete().eq('id', id);
     if (error) return res.status(500).json({ error: 'Failed to delete post.' });
