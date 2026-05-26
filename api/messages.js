@@ -1,4 +1,4 @@
-﻿// /api/messages — GET contact messages (admin only)
+// /api/messages — GET contact messages (admin only)
 const supabase = require('./_lib/supabase');
 const { requireAuth, cors, getClientIp, checkWriteRateLimit } = require('./_lib/auth');
 

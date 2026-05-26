@@ -167,20 +167,8 @@ INSERT INTO site_settings (key, value, description) VALUES
   ('maintenance_mode', 'false', 'Enable maintenance mode');
 
 -- ============================================================
--- MIGRATION: Add program column to gallery and posts
--- Run this in Supabase SQL Editor
+-- INDEXES
 -- ============================================================
-ALTER TABLE gallery ADD COLUMN IF NOT EXISTS program VARCHAR(50) DEFAULT 'heart-warriors';
-ALTER TABLE posts   ADD COLUMN IF NOT EXISTS program VARCHAR(50) DEFAULT 'heart-warriors';
-
--- Update existing Heart Warriors records
-UPDATE gallery SET program = 'heart-warriors' WHERE program IS NULL;
-UPDATE posts   SET program = 'heart-warriors' WHERE program IS NULL;
-
--- Add indexes for performance
-CREATE INDEX IF NOT EXISTS idx_gallery_program ON gallery(program);
-CREATE INDEX IF NOT EXISTS idx_posts_program   ON posts(program);
-
 CREATE INDEX idx_posts_status ON posts(status);
 CREATE INDEX idx_posts_category ON posts(category_id);
 CREATE INDEX idx_posts_published_at ON posts(published_at DESC);
@@ -206,3 +194,29 @@ CREATE POLICY "Public read gallery" ON gallery
 -- Anyone can submit contact messages
 CREATE POLICY "Anyone can submit contact" ON contact_messages
   FOR INSERT WITH CHECK (true);
+
+-- ============================================================
+-- AUDIT LOG TABLE
+-- Records all admin actions for security and accountability
+-- ============================================================
+CREATE TABLE IF NOT EXISTS audit_log (
+  id          UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+  admin_id    UUID REFERENCES admins(id) ON DELETE SET NULL,
+  action      VARCHAR(100) NOT NULL,
+  details     TEXT,
+  created_at  TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Index for fast lookups by admin and time
+CREATE INDEX IF NOT EXISTS idx_audit_log_admin_id   ON audit_log(admin_id);
+CREATE INDEX IF NOT EXISTS idx_audit_log_created_at ON audit_log(created_at DESC);
+CREATE INDEX IF NOT EXISTS idx_audit_log_action     ON audit_log(action);
+
+-- Row Level Security — only service role can write, admins can read their own
+ALTER TABLE audit_log ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY "Service role full access" ON audit_log
+  FOR ALL USING (auth.role() = 'service_role');
+
+CREATE POLICY "Admins read own logs" ON audit_log
+  FOR SELECT USING (admin_id::text = auth.uid()::text);
